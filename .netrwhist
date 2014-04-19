@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/David/Dropbox/2014_Sem1/SCIE2100/Lectures/L12'
+let g:netrw_dirhist_2='/Users/David/Dropbox/2014_Sem1/CSSE2010/Lectures/Lec13-tex'
+let g:netrw_dirhist_3='/Users/David/Dropbox/2014_Sem1/SCIE2100/Lectures/L13'
