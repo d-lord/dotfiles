@@ -1,12 +1,25 @@
+" graphical
 set bg=dark
-set number
+colorscheme solarized
+" let g:solarized_termcolors=256 " for silly terminals like Terminal.app
+set number " show line numbers
+set ruler " line at the bottom with (row, col) display
+syntax on
+
+set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
+set backspace=indent,eol,start " backspace behaves like Word
+
+" indenting
 set softtabstop=4
 set tabstop=8
 set shiftwidth=4
-set backspace=indent,eol,start
-syntax on
+
+" toggle highlighting search terms
 nnoremap <F3> :set hlsearch!<CR>
-set ruler
+" while typing search, start searching
+set incsearch
+
+" viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
 "  "100 :  will save up to 100 lines for each register
