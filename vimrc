@@ -1,3 +1,8 @@
+" credit and/or reference:
+" http://stevelosh.com/blog/2010/09/coming-home-to-vim/
+
+set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
+
 " graphical
 set bg=dark
 colorscheme solarized
@@ -11,14 +16,17 @@ set backspace=indent,eol,start " backspace behaves like Word
 
 " indenting
 set softtabstop=4
-set tabstop=8
+set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
 set shiftwidth=4
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
 
 " toggle highlighting search terms
 set hlsearch
 nnoremap <F3> :set hlsearch!<CR>
 " while typing search, start searching
 set incsearch
+" ignore case if search pattern is all lowercase, otherwise case-sensitive
+set smartcase
 
 " viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
@@ -36,7 +44,6 @@ function! ResCur()
     return 1
   endif
 endfunction
-
 augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
@@ -48,3 +55,9 @@ function! ToggleBackground()
     let &background = ( &background == "dark"? "light" : "dark" )
 endfunction
 nnoremap <leader>b :call ToggleBackground()<CR>
+
+" show line numbers relative to the current line
+nnoremap <leader>c :set relativenumber!<CR>
+
+" clear the last search (instead of typing /asdfghjkl)
+nnoremap <leader><space> :noh<CR>
