@@ -15,6 +15,7 @@ set tabstop=8
 set shiftwidth=4
 
 " toggle highlighting search terms
+set hlsearch
 nnoremap <F3> :set hlsearch!<CR>
 " while typing search, start searching
 set incsearch
@@ -40,3 +41,10 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" toggle background between light and dark
+" http://vim.wikia.com/wiki/Better_colors_for_syntax_highlighting
+function! ToggleBackground()
+    let &background = ( &background == "dark"? "light" : "dark" )
+endfunction
+nnoremap <leader>b :call ToggleBackground()<CR>
