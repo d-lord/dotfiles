@@ -30,6 +30,8 @@ set hlsearch
 nnoremap <F3> :set hlsearch!<CR>
 " while typing search, start searching
 set incsearch
+" required for smartcase: searches are case-insensitive
+set ignorecase
 " ignore case if search pattern is all lowercase, otherwise case-sensitive
 set smartcase
 
