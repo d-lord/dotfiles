@@ -10,7 +10,11 @@ set nocompatible " vi-compatible mode seems widely hated, and I don't know enoug
 
 " graphical
 set bg=dark
-colorscheme solarized
+try
+    colorscheme solarized
+catch /^Vim\%((\a\+)\)\=:E185/
+    colorscheme murphy
+endtry
 " let g:solarized_termcolors=256 " for silly terminals like Terminal.app
 set number " show line numbers
 set ruler " line at the bottom with (row, col) display
