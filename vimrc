@@ -4,7 +4,7 @@
 " https://github.com/tpope/vim-pathogen
 
 call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#helptags()
 
 set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
 
