@@ -10,3 +10,6 @@
 [submodule ".\\bundle\\solarized"]
 	path = .\\bundle\\solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
+[submodule "bundle/railscasts"]
+	path = bundle/railscasts
+	url = https://github.com/jpo/vim-railscasts-theme.git
