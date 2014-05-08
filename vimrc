@@ -8,6 +8,17 @@ call pathogen#infect()
 
 set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
 
+let mapleader = ","
+
+" show line numbers relative to the current line
+nnoremap <leader>c :set relativenumber!<CR>
+
+" clear the last search (instead of typing /asdfghjkl)
+nnoremap <leader><space> :noh<CR>
+
+" save and run make (intended for LaTeX)
+nnoremap <leader>m :w<CR>:make<CR>
+
 " colorscheme
 set bg=dark
 " if git repo has been checked out OK, solarized should be present. that's a big "if", so here's some handling.
@@ -80,11 +91,3 @@ function! ToggleBackground()
 endfunction
 nnoremap <leader>b :call ToggleBackground()<CR>
 
-" show line numbers relative to the current line
-nnoremap <leader>c :set relativenumber!<CR>
-
-" clear the last search (instead of typing /asdfghjkl)
-nnoremap <leader><space> :noh<CR>
-
-" save and run make (intended for LaTeX)
-nnoremap <leader>m :w<CR>:make<CR>
