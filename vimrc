@@ -54,6 +54,8 @@ else
 endif
 " convention says the colours are incompatible. screw convention
 let g:airline_theme = 'light'
+" "Automatically displays all buffers when there's only one tab open."
+let g:airline#extensions#tabline#enabled = 1
 
 " misc
 set backspace=indent,eol,start " backspace behaves like Word
