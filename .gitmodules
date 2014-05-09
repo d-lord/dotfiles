@@ -16,3 +16,6 @@
 [submodule "bundle/airline"]
 	path = bundle/airline
 	url = https://github.com/bling/vim-airline.git
+[submodule "font/powerline-fonts"]
+	path = font/powerline-fonts
+	url = git://github.com/Lokaltog/powerline-fonts.git

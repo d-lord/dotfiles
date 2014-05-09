@@ -30,12 +30,7 @@ endtry
 " solarized goes weird in Terminal.app but has a built-in solution
 " my detection's probably not bulletproof but works on laptop
 if !has("gui") && $TERM=="xterm-256color"
-    let g:solarized_termcolors=256 
-endif
-
-" default Windows gVim font breaks on italics
-if has("win32") || has("win64")
-    set guifont=Consolas:h10:b
+    let g:solarized_termcolors=256
 endif
 
 " graphical
@@ -43,6 +38,20 @@ set number " show line numbers
 set ruler " line at the bottom with (row, col) display
 syntax on
 set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
+set laststatus=2 " always show statusbar (vim-airline)
+
+" font choice - my OSX has installed fancy Airline fonts, Windows hasn't
+if has("win32") || has("win64")
+    " default Windows gVim font breaks on italics
+    set guifont=Consolas:h10:b
+else
+    try " vim-airline
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline " if font is installed
+	let g:airline_powerline_fonts = 1 " enables fancy characters in airline
+    catch /^Vim\%((\a\+)\)\=:E596/ " font is not installed
+	set guifont=Monaco
+    endtry
+endif
 
 " misc
 set backspace=indent,eol,start " backspace behaves like Word
@@ -90,4 +99,3 @@ function! ToggleBackground()
     let &background = ( &background == "dark"? "light" : "dark" )
 endfunction
 nnoremap <leader>b :call ToggleBackground()<CR>
-
