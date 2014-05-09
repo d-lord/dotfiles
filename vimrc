@@ -52,6 +52,8 @@ else
 	set guifont=Monaco
     endtry
 endif
+" convention says the colours are incompatible. screw convention
+let g:airline_theme = 'light'
 
 " misc
 set backspace=indent,eol,start " backspace behaves like Word
