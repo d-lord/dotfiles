@@ -38,13 +38,13 @@ set number " show line numbers
 set ruler " line at the bottom with (row, col) display
 syntax on
 set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
-set laststatus=2 " always show statusbar (vim-airline)
 
 " font choice - my OSX has installed fancy Airline fonts, Windows hasn't
 if has("win32") || has("win64")
     " default Windows gVim font breaks on italics
     set guifont=Consolas:h10:b
 else
+" --- vim-airline ---
     try " vim-airline
 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline " if font is installed
 	let g:airline_powerline_fonts = 1 " enables fancy characters in airline
@@ -54,8 +54,11 @@ else
 endif
 " convention says the colours are incompatible. screw convention
 let g:airline_theme = 'light'
-" "Automatically displays all buffers when there's only one tab open."
+" Automatically displays all buffers when there's only one tab open. -- Airline docs
 let g:airline#extensions#tabline#enabled = 1
+set laststatus=2 " always show statusbar (vim-airline)
+set noshowmode " don't show eg '-- INSERT --' at the bottom of the screen. vim-airline makes this redundant.
+let g:airline#extensions#tabline#show_tab_nr = 1 " show buffer tab numbers, if I'm reading correctly. I seem to be wrong.
 
 " misc
 set backspace=indent,eol,start " backspace behaves like Word
