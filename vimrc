@@ -3,19 +3,16 @@
 " http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 " https://github.com/tpope/vim-pathogen
 
-call pathogen#infect()
-"call pathogen#helptags()
-
 set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
 
-let mapleader = ","
+call pathogen#infect()
 
+" leader commands
+let mapleader = ","
 " show line numbers relative to the current line
 nnoremap <leader>c :set relativenumber!<CR>
-
 " clear the last search (instead of typing /asdfghjkl)
 nnoremap <leader><space> :noh<CR>
-
 " save and run make (intended for LaTeX)
 nnoremap <leader>m :w<CR>:make<CR>
 
