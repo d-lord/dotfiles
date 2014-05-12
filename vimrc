@@ -42,20 +42,22 @@ if has("win32") || has("win64")
     set guifont=Consolas:h10:b
 else
 " --- vim-airline ---
-    try " vim-airline
+    try
 	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline " if font is installed
 	let g:airline_powerline_fonts = 1 " enables fancy characters in airline
     catch /^Vim\%((\a\+)\)\=:E596/ " font is not installed
 	set guifont=Monaco
     endtry
 endif
-" convention says the colours are incompatible. screw convention
-let g:airline_theme = 'light'
-" Automatically displays all buffers when there's only one tab open. -- Airline docs
-let g:airline#extensions#tabline#enabled = 1
-set laststatus=2 " always show statusbar (vim-airline)
-set noshowmode " don't show eg '-- INSERT --' at the bottom of the screen. vim-airline makes this redundant.
-let g:airline#extensions#tabline#show_tab_nr = 1 " show buffer tab numbers, if I'm reading correctly. I seem to be wrong.
+let g:airline_theme = 'light'			    " convention says the colours are incompatible. screw convention
+set laststatus=2				    " always show statusbar (vim-airline)
+set noshowmode					    " don't show eg '-- INSERT --' at the bottom of the screen. vim-airline makes this redundant.
+let g:airline#extensions#tabline#enabled = 1	    " enable/disable enhanced tabline.
+" these next three are default options, the one after should add buffer #s if I understand correctly but doesn't seem to
+let g:airline#extensions#tabline#show_buffers = 1   " enable/disable displaying buffers with a single tab.
+let g:airline#extensions#tabline#show_tab_type = 1  " enable/disable displaying tab type (far right)
+let g:airline#extensions#tabline#show_tab_nr = 1    " enable/disable displaying tab number in tabs mode.
+let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are calculated in tab mode: tab number
 
 " misc
 set backspace=indent,eol,start " backspace behaves like Word
