@@ -49,7 +49,7 @@ else
 	set guifont=Monaco
     endtry
 endif
-let g:airline_theme = 'light'			    " convention says the colours are incompatible. screw convention
+let g:airline_theme = 'understated' 		    " convention says the colours are incompatible. screw convention
 set laststatus=2				    " always show statusbar (vim-airline)
 set noshowmode					    " don't show eg '-- INSERT --' at the bottom of the screen. vim-airline makes this redundant.
 let g:airline#extensions#tabline#enabled = 1	    " enable/disable enhanced tabline.
