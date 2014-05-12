@@ -60,7 +60,8 @@ let g:airline#extensions#tabline#show_tab_nr = 1    " enable/disable displaying 
 let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are calculated in tab mode: tab number
 
 " misc
-set backspace=indent,eol,start " backspace behaves like Word
+set backspace=indent,eol,start	" backspace behaves like Word
+set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
 
 " indenting
 set softtabstop=4
