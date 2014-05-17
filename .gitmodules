@@ -19,3 +19,6 @@
 [submodule "font/powerline-fonts"]
 	path = font/powerline-fonts
 	url = git://github.com/Lokaltog/powerline-fonts.git
+[submodule "font/consolas-font-for-powerline"]
+	path = font/consolas-font-for-powerline
+	url = git://github.com/runsisi/consolas-font-for-powerline.git

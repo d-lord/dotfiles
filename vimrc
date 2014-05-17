@@ -36,10 +36,12 @@ set ruler " line at the bottom with (row, col) display
 syntax on
 set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
 
-" font choice - my OSX has installed fancy Airline fonts, Windows hasn't
+" font choice - both my OSX and Windows platforms have installed fancy Airline fonts
 if has("win32") || has("win64")
     " default Windows gVim font breaks on italics
-    set guifont=Consolas:h10:b
+    set guifont=Powerline\ Consolas:h10:b
+    let	g:airline_powerline_fonts = 1 " enables fancy characters in airline
+    set encoding=utf-8 " should consider adding this to the OSX section or making it global
 else
 " --- vim-airline ---
     try
