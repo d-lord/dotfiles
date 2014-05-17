@@ -30,6 +30,30 @@ if !has("gui") && $TERM=="xterm-256color"
     let g:solarized_termcolors=256
 endif
 
+
+" misc
+filetype plugin on		" enable filetype-specific plugins
+set backspace=indent,eol,start	" backspace behaves like Word
+set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
+set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
+set wildmenu			" enhanced command-line completion
+
+" indenting
+set softtabstop=4
+set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
+set shiftwidth=4
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+
+" toggle highlighting search terms
+set hlsearch
+nnoremap <F3> :set hlsearch!<CR>
+" while typing search, start searching
+set incsearch
+" required for smartcase: searches are case-insensitive
+set ignorecase
+" ignore case if search pattern is all lowercase, otherwise case-sensitive
+set smartcase
+"
 " graphical
 set number " show line numbers
 set ruler " line at the bottom with (row, col) display
@@ -60,28 +84,6 @@ let g:airline#extensions#tabline#show_buffers = 1   " enable/disable displaying 
 let g:airline#extensions#tabline#show_tab_type = 1  " enable/disable displaying tab type (far right)
 let g:airline#extensions#tabline#show_tab_nr = 1    " enable/disable displaying tab number in tabs mode.
 let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are calculated in tab mode: tab number
-
-" misc
-set backspace=indent,eol,start	" backspace behaves like Word
-set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
-set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
-set wildmenu			" enhanced command-line completion
-
-" indenting
-set softtabstop=4
-set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
-set shiftwidth=4
-set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
-
-" toggle highlighting search terms
-set hlsearch
-nnoremap <F3> :set hlsearch!<CR>
-" while typing search, start searching
-set incsearch
-" required for smartcase: searches are case-insensitive
-set ignorecase
-" ignore case if search pattern is all lowercase, otherwise case-sensitive
-set smartcase
 
 " viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
