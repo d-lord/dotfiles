@@ -65,6 +65,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are 
 set backspace=indent,eol,start	" backspace behaves like Word
 set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
+set wildmenu			" enhanced command-line completion
 
 " indenting
 set softtabstop=4
