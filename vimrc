@@ -46,7 +46,6 @@ set smarttab " insert tabs on the start of a line according to shiftwidth, not t
 
 " toggle highlighting search terms
 set hlsearch
-nnoremap <F3> :set hlsearch!<CR>
 " while typing search, start searching
 set incsearch
 " required for smartcase: searches are case-insensitive
