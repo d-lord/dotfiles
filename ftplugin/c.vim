@@ -4,5 +4,6 @@ setlocal softtabstop=4
 setlocal tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
 setlocal shiftwidth=4
 setlocal smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
-setlocal autoindent
+" setlocal autoindent
+setlocal smartindent " better support for comments and code within a function
 setlocal foldmethod=syntax " automatic folding on syntax
