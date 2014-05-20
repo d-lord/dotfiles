@@ -58,6 +58,7 @@ set number " show line numbers
 set ruler " line at the bottom with (row, col) display
 syntax on
 set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
+set cursorline " highlight current line number and line
 
 " font choice - both my OSX and Windows platforms have installed fancy Airline fonts
 if has("win32") || has("win64")
