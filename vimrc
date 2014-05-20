@@ -26,7 +26,7 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 " solarized goes weird in Terminal.app but has a built-in solution
 " my detection's probably not bulletproof but works on laptop
-if !has("gui") && $TERM=="xterm-256color"
+if !has("gui_running") && $TERM=="xterm-256color"
     let g:solarized_termcolors=256
 endif
 
