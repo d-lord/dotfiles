@@ -34,6 +34,7 @@ endif
 " misc
 filetype plugin on		" enable filetype-specific plugins
 set backspace=indent,eol,start	" backspace behaves like Word
+set virtualedit=all		" let the cursor go in 'invalid' places
 set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
 set wildmenu			" enhanced command-line completion
