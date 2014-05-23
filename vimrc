@@ -40,6 +40,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completin
 set wildmenu			" enhanced command-line completion
 " backspace complements x
 nnoremap <BS> hx
+set scrolloff=5			" keep 5 lines between cursor and top/bottom of screen
 
 " indenting
 set softtabstop=4
