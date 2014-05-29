@@ -5,3 +5,6 @@
 .netrwhist
 *.swp
 *.swo
+
+# ctags
+tags
