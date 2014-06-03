@@ -8,3 +8,8 @@ setlocal smarttab " insert tabs on the start of a line according to shiftwidth, 
 setlocal smartindent " better support for comments and code within a function
 setlocal foldmethod=syntax " automatic folding on syntax
 setlocal foldlevel=99
+" display the ctags sidebar
+TagbarOpen
+nmap <F8> :TagbarToggle<CR>
+" does this do anything?
+let g:airline#extensions#tagbar#enabled = 1
