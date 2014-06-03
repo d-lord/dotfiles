@@ -7,3 +7,4 @@ setlocal smarttab " insert tabs on the start of a line according to shiftwidth, 
 " setlocal autoindent
 setlocal smartindent " better support for comments and code within a function
 setlocal foldmethod=syntax " automatic folding on syntax
+setlocal foldlevel=99
