@@ -39,6 +39,10 @@ set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completin
 set wildmenu			" enhanced command-line completion
 " backspace complements x
 nnoremap <BS> hx
+" use ctrl+tab to switch buffers (with airline this is like everything else
+" with tabs) - doesn't work in terminal Vim (only gVim/MacVim)
+nnoremap <C-Tab> :bn<CR>
+nnoremap <C-S-Tab> :bp<CR>
 
 " indenting
 set softtabstop=4
