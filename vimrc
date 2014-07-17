@@ -9,7 +9,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " leader commands
-let mapleader = ","
+let mapleader = "\\"
 " show line numbers relative to the current line
 nnoremap <leader>c :set relativenumber!<CR>
 " clear the last search (instead of typing /asdfghjkl)
