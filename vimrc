@@ -54,7 +54,7 @@ set incsearch
 set ignorecase
 " ignore case if search pattern is all lowercase, otherwise case-sensitive
 set smartcase
-"
+
 " graphical
 set number	    " show line numbers
 set ruler	    " line at the bottom with (row, col) display
