@@ -14,8 +14,6 @@ let mapleader = "\\"
 nnoremap <leader>c :set relativenumber!<CR>
 " clear the last search (instead of typing /asdfghjkl)
 nnoremap <leader><space> :noh<CR>
-" save and run make (intended for LaTeX)
-nnoremap <leader>m :w<CR>:make<CR>
 
 " colorscheme
 set bg=dark
