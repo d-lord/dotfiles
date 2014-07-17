@@ -39,7 +39,6 @@ set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completin
 set wildmenu			" enhanced command-line completion
 " backspace complements x
 nnoremap <BS> hx
-set scrolloff=5			" keep 5 lines between cursor and top/bottom of screen
 
 " indenting
 set softtabstop=4
@@ -57,11 +56,12 @@ set ignorecase
 set smartcase
 "
 " graphical
-set number " show line numbers
-set ruler " line at the bottom with (row, col) display
-syntax on
-set cpoptions+=$ " show $ when making a change to one line - haven't decided whether I like this
-set cursorline " highlight current line number and line - may get annoying
+set number	    " show line numbers
+set ruler	    " line at the bottom with (row, col) display
+syntax on	    " enable syntax highlighting
+set cpoptions+=$    " show $ when making a change to one line - haven't decided whether I like this
+set cursorline	    " highlight current line number and line - may get annoying
+set scrolloff=5	    " keep 5 lines between cursor and top/bottom of screen
 
 " font choice - both my OSX and Windows platforms have installed fancy Airline fonts
 if has("win32") || has("win64")
