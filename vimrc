@@ -119,3 +119,6 @@ function! ToggleBackground()
     let &background = ( &background == "dark"? "light" : "dark" )
 endfunction
 nnoremap <leader>b :call ToggleBackground()<CR>
+
+" vimroom: centre 80-character block on screen
+nnoremap <leader>vr :VimroomToggle<CR>
