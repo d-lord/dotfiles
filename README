@@ -15,5 +15,5 @@ Switch to the `~/.vim` directory, and fetch submodules:
 
 
 Adding submodules:
-git submodule init
-git submodule add [https://github.com/mikewest/vimroom] [bundle/vimroom]
+    git submodule init
+    git submodule add [https://github.com/mikewest/vimroom] [bundle/vimroom]
