@@ -11,5 +11,27 @@ setlocal foldlevel=99
 " display the ctags sidebar
 TagbarOpen
 nmap <F8> :TagbarToggle<CR>
+nnoremap <S-F8> :call Bclose()<CR>
+"
+" Bclose() {{{2
+" delete buffer without closing window
+function! Bclose()
+    let curbufnr = bufnr("%")
+    let altbufnr = bufnr("#")
+
+    if buflisted(altbufnr)
+        buffer #
+    else
+        bnext
+    endif
+
+    if bufnr("%") == curbufnr
+        new
+    endif
+
+    if buflisted(curbufnr)
+        execute("bdelete! " . curbufnr)
+    endif
+endfunction
 " does this do anything?
 let g:airline#extensions#tagbar#enabled = 1
