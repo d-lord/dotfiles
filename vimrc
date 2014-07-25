@@ -37,6 +37,7 @@ set virtualedit=all		" let the cursor go in 'invalid' places
 set hidden			" enable loading a buffer in a window that already has a modified buffer (modified buffer will stay in memory and ask to be saved on :q)
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
 set wildmenu			" enhanced command-line completion
+set directory=.,$TEMP		" fix E303 on open file on Windows
 " backspace complements x
 nnoremap <BS> hx
 " use ctrl+tab to switch buffers (with airline this is like everything else
