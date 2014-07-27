@@ -14,8 +14,10 @@ Switch to the `~/.vim` directory, and fetch submodules:
     git submodule update
 
 Adding submodules:
+
     git submodule init
     git submodule add [https://github.com/mikewest/vimroom] [bundle/vimroom]
 
 Updating submodules and third-party dependencies:
+
     git submodule update --init --recursive
