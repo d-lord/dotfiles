@@ -10,8 +10,8 @@ setlocal foldmethod=syntax " automatic folding on syntax
 setlocal foldlevel=99
 " display the ctags sidebar
 TagbarOpen
-nmap <F8> :TagbarToggle<CR>
-nnoremap <S-F8> :call Bclose()<CR>
+nmap <F7> :TagbarToggle<CR>
+nnoremap <S-F7> :call Bclose()<CR>
 "
 " Bclose() {{{2
 " delete buffer without closing window
