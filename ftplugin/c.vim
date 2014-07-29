@@ -8,7 +8,10 @@ setlocal smarttab " insert tabs on the start of a line according to shiftwidth, 
 setlocal smartindent " better support for comments and code within a function
 setlocal foldmethod=syntax " automatic folding on syntax
 setlocal foldlevel=99
-" display the ctags sidebar
+
+
+
+" display the ctags sidebar for this buffer
 TagbarOpen
 nmap <F7> :TagbarToggle<CR>
 nnoremap <S-F7> :call Bclose()<CR>
@@ -33,5 +36,8 @@ function! Bclose()
         execute("bdelete! " . curbufnr)
     endif
 endfunction
+
+
+
 " does this do anything?
 let g:airline#extensions#tagbar#enabled = 1
