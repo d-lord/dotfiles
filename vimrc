@@ -23,10 +23,17 @@ try
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme murphy
 endtry
-" solarized goes weird in Terminal.app but has a built-in solution
-" my detection's probably not bulletproof but works on laptop
+" solarized goes weird in iTerm2.app but has a built-in solution
+" my detection's probably not bulletproof but works in every situation I've
+" needed it
 if !has("gui_running") && $TERM=="xterm-256color"
     let g:solarized_termcolors=16
+    " while we're here... change terminal colourscheme for solarized
+    " assumes this is iTerm2 and we have Solarized and Default profiles
+    !echo -e "\033]50;SetProfile=Solarized\a"
+    autocmd VimLeave * !echo -e "\033]50;SetProfile=Default\a"
+    " would like to fix this up - the !echoes are visible in userland
+    " but it *works* for now
 endif
 
 
