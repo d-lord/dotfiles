@@ -69,6 +69,10 @@ nnoremap <BS> hx
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
 
+" mouse stuff
+set mouse=n " enable it for normal mode only (I just want scrolling + window resizing)
+set ttymouse=xterm2 " allows (requests) tmux to pass through
+
 " indenting
 set softtabstop=4
 set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
