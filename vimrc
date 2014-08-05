@@ -68,6 +68,12 @@ nnoremap <BS> hx
 " with tabs) - doesn't work in terminal Vim (only gVim/MacVim)
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
+" iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
+" currently works in iTerm2 but not tmux on iTerm2
+set <F13>=O2P
+set <F14>=O2Q
+map <F13> <C-Tab>
+map <F14> <C-S-Tab>
 
 " mouse stuff
 set mouse=n " enable it for normal mode only (I just want scrolling + window resizing)
