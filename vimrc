@@ -69,11 +69,30 @@ nnoremap <BS> hx
 nnoremap <C-Tab> :bn<CR>
 nnoremap <C-S-Tab> :bp<CR>
 " iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
-" currently works in iTerm2 but not tmux on iTerm2
-set <F13>=O2P
-set <F14>=O2Q
+" currently works in iTerm2 OR tmux on iTerm2 depending what escape codes are
+" mapped to <F13> and <F14>
 map <F13> <C-Tab>
 map <F14> <C-S-Tab>
+" use these for iTerm2 non-tmux:
+" set iTerm2 to send O2P on ctrl+tab and don't care about xterm-keys in ~/.tmux.conf
+"set <F13>=O2P
+"set <F14>=O2Q
+" use these for tmux/iTerm2:
+" set iTerm2 to send O2P on ctrl+tab and enable xterm-keys in ~/.tmux.conf
+" with 'set-option -g xterm-keys on'
+" alternatively, you can make iTerm send these [25~ codes and vim will
+" accept them - but tmux will then refuse to pass them through (?!)
+set <F13>^=[25~
+set <F14>^=[26~
+"map <F15> <F13>
+"map <F16> <F14>
+" experimenty failures:
+"set <F13>=[1;2P
+"set <F14>=[1;2Q
+"map [1;2P <F13>
+"map [1;2Q <F14>
+"map O2P <F13>
+"map O2Q <F14>
 
 " mouse stuff
 set mouse=n " enable it for normal mode only (I just want scrolling + window resizing)
