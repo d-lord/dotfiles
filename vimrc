@@ -25,13 +25,19 @@ catch /^Vim\%((\a\+)\)\=:E185/
 endtry
 " terminal-specific configuration: for PuTTY and iTerm
 " (also works with tmux under those circumstances)
-" Assumes PuTTY is in solarized colourscheme
-" or iTerm has profiles called "Default" and "Solarized"
-if !has("gui_running") && $TERM=="xterm-256color"
+" This section used to be big on Solarized-related config
+" but now I've stopped caring and just use it in 256color mode.
+" (because otherwise the whole terminal tab/window has to be in Solarized
+" theme, and tmux/irssi look horrible that way - so does iTerm's mouse
+" selection)
+"
+if !has("gui_running") && ($TERM=="xterm-256color" || ($TERM=="screen-256color"))
     " this line is useful only if we don't have solarized colours for the
-    " terminal - leaving it commented out in case that happens
-    "let g:solarized_termcolors=16
+    " terminal - this is now exactly what I do
+    let g:solarized_termcolors=256
     
+    " Assumes PuTTY is in solarized colourscheme
+    " or iTerm has profiles called "Default" and "Solarized"
     " iTerm2: change terminal colourscheme for solarized
     " assumes this is iTerm2 and we have Solarized and Default profiles
     " other terminals (eg PuTTY) will just ignore the escape codes
@@ -39,7 +45,7 @@ if !has("gui_running") && $TERM=="xterm-256color"
     " on starting vim: switch to solarized
     " any of these work:
     "!echo -e "\033]50;SetProfile=Solarized\a"
-    autocmd VimEnter * !echo -e "\033]50;SetProfile=Solarized\a"
+    " autocmd VimEnter * !echo -e "\033]50;SetProfile=Solarized\a"
     " !echo -e "]50;SetProfile=Solarized\a"
     " these should be quieter but simply don't work:
     " autocmd VimEnter * echo "]50;SetProfile=Solarized\\a"
@@ -47,10 +53,10 @@ if !has("gui_running") && $TERM=="xterm-256color"
 
     " on leaving vim: switch to default (there's no iTerm code for "get
     " current profile" or "use previous profile")
-    autocmd VimLeave * !echo -e "\033]50;SetProfile=Default\a"
+    " autocmd VimLeave * !echo -e "\033]50;SetProfile=Default\a"
     
     " would like to fix this up - the !echoes are visible in userland
-    " but it *works* for now
+    " but it *works*
 endif
 
 
