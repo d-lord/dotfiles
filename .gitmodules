@@ -1,18 +1,18 @@
 [submodule "bundle/surround"]
 	path = bundle/surround
-	url = https://github.com/tpope/vim-surround.git
+	url = git://github.com/tpope/vim-surround.git
 [submodule "bundle/repeat"]
 	path = bundle/repeat
-	url = http://github.com/tpope/vim-repeat.git
+	url = git://github.com/tpope/vim-repeat.git
 [submodule "bundle/solarized"]
 	path = bundle/solarized
 	url = git://github.com/altercation/vim-colors-solarized.git
 [submodule "bundle/railscasts"]
 	path = bundle/railscasts
-	url = https://github.com/jpo/vim-railscasts-theme.git
+	url = git://github.com/jpo/vim-railscasts-theme.git
 [submodule "bundle/airline"]
 	path = bundle/airline
-	url = https://github.com/bling/vim-airline.git
+	url = git://github.com/bling/vim-airline.git
 [submodule "font/powerline-fonts"]
 	path = font/powerline-fonts
 	url = git://github.com/Lokaltog/powerline-fonts.git
@@ -21,16 +21,16 @@
 	url = git://github.com/runsisi/consolas-font-for-powerline.git
 [submodule "bundle/fugitive"]
 	path = bundle/fugitive
-	url = https://github.com/tpope/vim-fugitive.git
+	url = git://github.com/tpope/vim-fugitive.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git://github.com/majutsushi/tagbar.git
 [submodule "bundle/youcompleteme"]
 	path = bundle/youcompleteme
-	url = https://github.com/Valloric/YouCompleteMe.git
+	url = git://github.com/Valloric/YouCompleteMe.git
 [submodule "bundle/vimroom"]
 	path = bundle/vimroom
-	url = https://github.com/mikewest/vimroom
+	url = git://github.com/mikewest/vimroom.git
 [submodule "bundle/vim-tmux-navigator"]
 	path = bundle/vim-tmux-navigator
-	url = https://github.com/christoomey/vim-tmux-navigator.git
+	url = git://github.com/christoomey/vim-tmux-navigator.git
