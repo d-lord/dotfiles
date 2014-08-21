@@ -152,6 +152,9 @@ let g:airline#extensions#tabline#show_tab_type = 1  " enable/disable displaying 
 let g:airline#extensions#tabline#show_tab_nr = 1    " enable/disable displaying tab number in tabs mode.
 let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are calculated in tab mode: tab number
 
+" other plugin conf...
+let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
+
 " viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
