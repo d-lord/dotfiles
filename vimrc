@@ -16,6 +16,8 @@ nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader><space> :noh<CR>
 
 " custom key maps
+" experimental: jk to <Esc>
+inoremap jk <Esc>
 " backspace complements x
 nnoremap <BS> hx
 " use ctrl+tab to switch buffers (with airline this is like everything else
