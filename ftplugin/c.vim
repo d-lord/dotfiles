@@ -12,7 +12,7 @@ setlocal foldlevel=99
 
 
 " display the ctags sidebar for this buffer
-TagbarOpen
+" TagbarOpen " off by default because it gets annoying
 nmap <F7> :TagbarToggle<CR>
 nnoremap <S-F7> :call Bclose()<CR>
 "
