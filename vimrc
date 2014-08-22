@@ -10,7 +10,7 @@ set nocompatible " vi-compatible mode seems widely hated, and I don't know enoug
 " 23/08/14
 filetype off
 set runtimepath+=~/.vim/bundle/vundle
-call vundle#rc()
+call vundle#begin()
 
 Bundle 'gmarik/vundle'
 Bundle 'bling/vim-airline'
