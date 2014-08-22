@@ -24,6 +24,10 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'runsisi/consolas-font-for-powerline'
 Bundle 'Lokaltog/powerline-fonts'
 
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 " leader commands
 let mapleader = "\\"
