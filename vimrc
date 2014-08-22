@@ -3,7 +3,7 @@
 " http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
 " https://github.com/tpope/vim-pathogen
 
-set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
+set nocompatible " vi-compatible mode disables a lot of cool functionality
 
 call pathogen#infect()
 call pathogen#helptags()
