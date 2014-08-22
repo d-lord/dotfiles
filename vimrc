@@ -5,8 +5,25 @@
 
 set nocompatible " vi-compatible mode seems widely hated, and I don't know enough to break away from consensus
 
-call pathogen#infect()
-call pathogen#helptags()
+" Required Vundle setup
+" http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
+" 23/08/14
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-fugitive'
+Bundle 'jpo/vim-railscasts-theme'
+Bundle 'altercation/vim-colors-solarized'
+Bundle 'tpope/vim-surround'
+Bundle 'majutsushi/tagbar'
+Bundle 'christoomey/vim-tmux-navigator'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'runsisi/consolas-font-for-powerline'
+Bundle 'Lokaltog/powerline-fonts'
+
 
 " leader commands
 let mapleader = "\\"
