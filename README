@@ -13,6 +13,11 @@ Switch to the `~/.vim` directory, check out and run Vundle:
     git clone https://github.com/gmarik/Vundle.vim.git bundle/vundle
     vim +BundleInstall +qall
 
+Install YouCompleteMe:
+
+    cd ~/.vim/bundle/YouCompleteMe
+    ./install.sh --clang-completer
+
 Adding bundles:
 
     see point 3 of "Quick Start": https://github.com/gmarik/Vundle.vim
