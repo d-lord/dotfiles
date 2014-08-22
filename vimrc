@@ -14,6 +14,8 @@ let mapleader = "\\"
 nnoremap <leader>c :set relativenumber!<CR>
 " clear the last search (instead of typing /asdfghjkl)
 nnoremap <leader><space> :noh<CR>
+" toggle paste mode
+nnoremap <leader>p :set paste!<CR>
 
 " custom key maps
 " experimental: jk to <Esc>
