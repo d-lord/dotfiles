@@ -12,17 +12,17 @@ filetype off
 set runtimepath+=~/.vim/bundle/vundle
 call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'bling/vim-airline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'jpo/vim-railscasts-theme'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'tpope/vim-surround'
-Bundle 'majutsushi/tagbar'
-Bundle 'christoomey/vim-tmux-navigator'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'runsisi/consolas-font-for-powerline'
-Bundle 'Lokaltog/powerline-fonts'
+Plugin 'gmarik/vundle'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'runsisi/consolas-font-for-powerline'
+Plugin 'Lokaltog/powerline-fonts'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
