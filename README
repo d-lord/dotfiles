@@ -1,23 +1,18 @@
-Installation:
+###Installation
 
     git clone git://github.com/d-lord/dotvim.git ~/.vim
 
-Create symlinks:
-
     ln -s ~/.vim/vimrc ~/.vimrc
     ln -s ~/.vim/gvimrc ~/.gvimrc
-
-Switch to the `~/.vim` directory, check out and run Vundle:
 
     cd ~/.vim
     git clone https://github.com/gmarik/Vundle.vim.git bundle/vundle
     vim "+colorscheme desert" +PluginInstall +qall
 
-Install YouCompleteMe:
-
     cd ~/.vim/bundle/YouCompleteMe
     ./install.sh --clang-completer
 
+### Maintenance
 Adding plugins:
 
     see point 3 of "Quick Start": https://github.com/gmarik/Vundle.vim
