@@ -11,7 +11,7 @@ Switch to the `~/.vim` directory, check out and run Vundle:
 
     cd ~/.vim
     git clone https://github.com/gmarik/Vundle.vim.git bundle/vundle
-    vim +BundleInstall +qall
+    vim "+colorscheme desert" +BundleInstall +qall
 
 Install YouCompleteMe:
 
