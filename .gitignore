@@ -6,5 +6,8 @@
 *.swp
 *.swo
 
+# vim/vundle
+bundle/**
+
 # ctags
 tags

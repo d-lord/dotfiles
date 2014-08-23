@@ -1,5 +1,0 @@
-Fonts currently only used for vim-airline plugin.
-Fonts are larger than most vim plugins.
-Note that they aren't handled by Vim, but are used by it, hence their inclusion in this repo.
-On OSX, font installation is done by copying fonts into the ~/Library/Fonts or /Library/Fonts folder.
-Fonts are a little tricky - the system running Vim needs to have them installed for vim-airline to look good. Currently vimrc just tries to use one, and if it fails, assumes vim-airline isn’t going to go well. Doesn’t disable it though.

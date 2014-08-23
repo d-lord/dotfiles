@@ -5,8 +5,29 @@
 
 set nocompatible " vi-compatible mode disables a lot of cool functionality
 
-call pathogen#infect()
-call pathogen#helptags()
+" Required Vundle setup
+" http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
+" 23/08/14
+filetype off
+set runtimepath+=~/.vim/bundle/vundle
+call vundle#begin()
+
+Plugin 'gmarik/vundle'
+Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'tpope/vim-surround'
+Plugin 'majutsushi/tagbar'
+Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'runsisi/consolas-font-for-powerline'
+Plugin 'Lokaltog/powerline-fonts'
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
 
 " leader commands
 let mapleader = "\\"
