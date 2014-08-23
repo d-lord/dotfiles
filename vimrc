@@ -126,6 +126,7 @@ set hidden			" enable loading a buffer in a window that already has a modified b
 set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
 set wildmenu			" enhanced command-line completion
 set directory=.,$TEMP		" fix E303 on open file on Windows
+set ttimeoutlen=50		" fix delay leaving insert mode esp in airline
 
 " mouse stuff
 set mouse=n " enable it for normal mode only (I just want scrolling + window resizing)
