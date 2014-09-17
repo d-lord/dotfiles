@@ -183,12 +183,5 @@ augroup resCur
   autocmd BufWinEnter * call ResCur()
 augroup END
 
-" toggle background between light and dark
-" http://vim.wikia.com/wiki/Better_colors_for_syntax_highlighting
-function! ToggleBackground()
-    let &background = ( &background == "dark"? "light" : "dark" )
-endfunction
-nnoremap <leader>b :call ToggleBackground()<CR>
-
 " vimroom: centre 80-character block on screen
 nnoremap <leader>vr :VimroomToggle<CR>
