@@ -91,31 +91,9 @@ endtry
 " selection)
 "
 if !has("gui_running") && ($TERM=="xterm-256color" || ($TERM=="screen-256color"))
-    " this line is useful only if we don't have solarized colours for the
-    " terminal - this is now exactly what I do
+    " this line is useful only if we don't have solarized colours for
+    " the terminal - this is now exactly what I do
     let g:solarized_termcolors=256
-    
-    " Assumes PuTTY is in solarized colourscheme
-    " or iTerm has profiles called "Default" and "Solarized"
-    " iTerm2: change terminal colourscheme for solarized
-    " assumes this is iTerm2 and we have Solarized and Default profiles
-    " other terminals (eg PuTTY) will just ignore the escape codes
-    
-    " on starting vim: switch to solarized
-    " any of these work:
-    "!echo -e "\033]50;SetProfile=Solarized\a"
-    " autocmd VimEnter * !echo -e "\033]50;SetProfile=Solarized\a"
-    " !echo -e "]50;SetProfile=Solarized\a"
-    " these should be quieter but simply don't work:
-    " autocmd VimEnter * echo "]50;SetProfile=Solarized\\a"
-    " autocmd VimEnter * echo "\<Esc>]50;SetProfile=Solarized\\a"
-
-    " on leaving vim: switch to default (there's no iTerm code for "get
-    " current profile" or "use previous profile")
-    " autocmd VimLeave * !echo -e "\033]50;SetProfile=Default\a"
-    
-    " would like to fix this up - the !echoes are visible in userland
-    " but it *works*
 endif
 
 
