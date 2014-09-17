@@ -158,6 +158,7 @@ let g:airline#extensions#tabline#show_buffers = 1   " enable/disable displaying 
 let g:airline#extensions#tabline#show_tab_type = 1  " enable/disable displaying tab type (far right)
 let g:airline#extensions#tabline#show_tab_nr = 1    " enable/disable displaying tab number in tabs mode.
 let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are calculated in tab mode: tab number
+"let g:airline#extensions#tabline#buffer_nr_show = 1    " not sure if I want this yet, shows buffer number above
 
 " other plugin conf...
 let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
