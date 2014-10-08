@@ -25,7 +25,11 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'runsisi/consolas-font-for-powerline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'Lokaltog/vim-easymotion'
+<<<<<<< HEAD
 Plugin 'vim-scripts/wombat256.vim'
+=======
+Plugin 'tpope/vim-commentary'
+>>>>>>> 2d04ff60ca8f48adac750fb2b03b92df29d81857
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
