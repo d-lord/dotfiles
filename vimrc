@@ -163,6 +163,13 @@ let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are 
 
 " other plugin conf...
 let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
+" EasyMotion
+" Gif config
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
 
 " viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
