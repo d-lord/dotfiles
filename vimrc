@@ -77,7 +77,7 @@ set <F14>^=[26~
 "map O2Q <F14>
 
 " colorscheme
-set bg=dark
+set bg=light
 " if git repo has been checked out OK, solarized should be present. that's a big "if", so here's some handling.
 try
     colorscheme solarized
