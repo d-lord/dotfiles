@@ -32,6 +32,10 @@ Plugin 'tpope/vim-commentary'
 call vundle#end()            " required
 filetype plugin indent on    " required
 
+" make YouCompleteMe and eclim play nice
+" eclim doesn't feature in Vundle afaik
+let g:EclimCompletionMethod = 'omnifunc'
+
 
 " leader commands
 let mapleader = "\\"
