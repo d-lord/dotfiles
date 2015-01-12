@@ -140,6 +140,7 @@ syntax on	    " enable syntax highlighting
 set cursorline	    " highlight current line number and line - may get annoying
 set scrolloff=5	    " keep 5 lines between cursor and top/bottom of screen
 
+" airline plugin, including font
 " font choice - both my OSX and Windows platforms have installed fancy Airline fonts
 if has("win32") || has("win64")
     " default Windows gVim font breaks on italics
@@ -155,7 +156,7 @@ else
 	set guifont=Monaco
     endtry
 endif
-let g:airline_theme = 'understated' 		    " convention says the colours are incompatible. screw convention
+let g:airline_theme = 'solarized' 		    " blends in with windows
 set laststatus=2				    " always show statusbar (vim-airline)
 set noshowmode					    " don't show eg '-- INSERT --' at the bottom of the screen. vim-airline makes this redundant.
 let g:airline#extensions#tabline#enabled = 1	    " enable/disable enhanced tabline.
