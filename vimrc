@@ -29,6 +29,7 @@ Plugin 'vim-scripts/wombat256.vim'
 Plugin 'tpope/vim-commentary'
 Plugin 'gibiansky/vim-latex-objects'
 Plugin 'SirVer/ultisnips'
+Plugin 'ervandew/supertab'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -181,6 +182,16 @@ function! ToggleYCMCompletion() " mapped below
     endif
 endfunction
 nmap <Leader>t :call ToggleYCMCompletion()<CR>
+" YouCompleteMe and UltiSnips:
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 " EasyMotion
 " Gif config
