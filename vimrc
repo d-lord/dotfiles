@@ -27,6 +27,7 @@ Plugin 'Lokaltog/powerline-fonts'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/wombat256.vim'
 Plugin 'tpope/vim-commentary'
+Plugin 'gibiansky/vim-latex-objects'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
