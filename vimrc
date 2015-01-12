@@ -168,7 +168,18 @@ let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are 
 "let g:airline#extensions#tabline#buffer_nr_show = 1    " not sure if I want this yet, shows buffer number above
 
 " other plugin conf...
+
+" YouCompleteMe
 let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
+function! ToggleYCMCompletion() " mapped below
+    if g:ycm_auto_trigger == 0
+	let g:ycm_auto_trigger=1
+    else
+	let g:ycm_auto_trigger=0
+    endif
+endfunction
+nmap <Leader>t :call ToggleYCMCompletion()<CR>
+
 " EasyMotion
 " Gif config
 map <Leader>l <Plug>(easymotion-lineforward)
