@@ -5,7 +5,7 @@ snippet site
     author		= "${2:Bob Smith}",
     title		= "${3:Page title}",
     howpublished	= "\url{${4:insert URL}}",
-    year		= ${5:2015},
+    year		= ${5:`!v strftime("%Y")`},
     note		= "Accessed: ${6:`!v strftime("%d-%B-%Y")`}"
 }
 endsnippet
