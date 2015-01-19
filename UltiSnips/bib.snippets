@@ -1,0 +1,9 @@
+snippet site
+@misc{${1:owner:title},
+    author		= "${2:Bob Smith}",
+    title		= "${3:Page title}",
+    howpublished	= "\url{${4:insert URL}}",
+    year		= ${5:2015},
+    note		= "Accessed: ${6:`!v strftime("%d-%B-%Y")`}"
+}
+endsnippet
