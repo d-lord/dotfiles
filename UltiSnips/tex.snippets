@@ -11,3 +11,14 @@ snippet asa
 ${1}
 \end{lstlisting}
 endsnippet
+
+# an image with a label and caption
+# filepath makes suggestions which must be navigated with c-n and c-p:
+# tab will jump to next field
+snippet pic
+\begin{figure}
+    \label{fig:${1:label}}
+    \includegraphics[width=\linewidth]{./img/$2}
+    \caption{$3}
+\end{figure}
+endsnippet
