@@ -28,6 +28,7 @@ Plugin 'tpope/vim-commentary'
 Plugin 'gibiansky/vim-latex-objects'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
+Plugin 'junegunn/vim-easy-align'
 Plugin 'penicolas/simplon.vim'
 Plugin 'romainl/Apprentice'
 
@@ -200,6 +201,12 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " viminfo - will not transfer between machines (but we could add this to git if desired)
 " Tell vim to remember certain things when we exit
