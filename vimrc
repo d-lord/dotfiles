@@ -86,26 +86,16 @@ set <F14>^=[26~
 "map O2Q <F14>
 
 " colorscheme
-set bg=light
-" if git repo has been checked out OK, solarized should be present. that's a big "if", so here's some handling.
+" if git repo has been checked out OK, custom colorschemes should be present. that's a big "if", so here's some handling.
 try
     colorscheme solarized
+    set bg=light " my preference in solarized
+    let g:solarized_termcolors=256 " neovim truecolor doesn't care, vim does
+    " and if we're not using xterm-256color, I'd rather notice immediately
 catch /^Vim\%((\a\+)\)\=:E185/
     colorscheme murphy
+    set bg=dark
 endtry
-" terminal-specific configuration: for PuTTY and iTerm
-" (also works with tmux under those circumstances)
-" This section used to be big on Solarized-related config
-" but now I've stopped caring and just use it in 256color mode.
-" (because otherwise the whole terminal tab/window has to be in Solarized
-" theme, and tmux/irssi look horrible that way - so does iTerm's mouse
-" selection)
-"
-if !has("gui_running") && ($TERM=="xterm-256color" || ($TERM=="screen-256color"))
-    " this line is useful only if we don't have solarized colours for
-    " the terminal - this is now exactly what I do
-    let g:solarized_termcolors=256
-endif
 
 
 " misc
