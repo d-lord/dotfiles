@@ -1,7 +1,5 @@
 " credit and/or reference:
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
-" http://vimcasts.org/episodes/synchronizing-plugins-with-git-submodules-and-pathogen/
-" https://github.com/tpope/vim-pathogen
 
 set nocompatible " vi-compatible mode disables a lot of cool functionality
 
