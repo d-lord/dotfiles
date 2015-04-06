@@ -28,6 +28,8 @@ Plugin 'tpope/vim-commentary'
 Plugin 'gibiansky/vim-latex-objects'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
+Plugin 'penicolas/simplon.vim'
+Plugin 'romainl/Apprentice'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
