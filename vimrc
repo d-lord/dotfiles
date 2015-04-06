@@ -55,35 +55,15 @@ nnoremap <leader>p :set paste!<CR>
 inoremap jk <Esc>
 " backspace complements x
 nnoremap <BS> hx
-" use ctrl+tab to switch buffers (with airline this is like everything else
-" with tabs) - doesn't work in terminal Vim (only gVim/MacVim)
-nnoremap <C-Tab> :bn<CR>
-nnoremap <C-S-Tab> :bp<CR>
+
+" I hate terminals
 " iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
-" currently works in iTerm2 OR tmux on iTerm2 depending what escape codes are
-" mapped to <F13> and <F14>
-map <F13> <C-Tab>
-map <F14> <C-S-Tab>
-" use these for iTerm2 non-tmux:
-" set iTerm2 to send O2P on ctrl+tab and don't care about xterm-keys in ~/.tmux.conf
-"set <F13>=O2P
-"set <F14>=O2Q
-" use these for tmux/iTerm2:
-" set iTerm2 to send O2P on ctrl+tab and enable xterm-keys in ~/.tmux.conf
-" with 'set-option -g xterm-keys on'
-" alternatively, you can make iTerm send these [25~ codes and vim will
-" accept them - but tmux will then refuse to pass them through (?!)
-set <F13>^=[25~
-set <F14>^=[26~
-"map <F15> <F13>
-"map <F16> <F14>
-" experimenty failures:
-"set <F13>=[1;2P
-"set <F14>=[1;2Q
-"map [1;2P <F13>
-"map [1;2Q <F14>
-"map O2P <F13>
-"map O2Q <F14>
+set <F13>^=[1;2P
+set <F14>^=[1;2Q
+nmap <F13> :bn<CR>
+nmap <F14> :bp<CR>
+nmap <C-Tab> :bn<CR>
+nmap <C-S-Tab> :bp<CR>
 
 " colorscheme
 " if git repo has been checked out OK, custom colorschemes should be present. that's a big "if", so here's some handling.
