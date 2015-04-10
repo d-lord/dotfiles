@@ -112,7 +112,7 @@ set number	    " show line numbers
 set ruler	    " line at the bottom with (row, col) display
 syntax on	    " enable syntax highlighting
 set cursorline	    " highlight current line number and line - may get annoying
-set scrolloff=5	    " keep 5 lines between cursor and top/bottom of screen
+set scrolloff=0	    " keep 0 lines between cursor and top/bottom of screen (ie disabled)
 
 " airline plugin, including font
 " font choice - both my OSX and Windows platforms have installed fancy Airline fonts
