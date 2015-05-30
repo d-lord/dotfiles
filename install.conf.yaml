@@ -7,10 +7,21 @@
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc
     ~/.gitconfig: .gitconfig
-    ~/.vimrc: .vim/vimrc
     ~/.vim: .vim/
-    ~/.nvimrc: .nvim/nvimrc
+    ~/.vimrc: .vim/vimrc
     ~/.nvim: .nvim/
+    ~/.nvimrc: .nvim/nvimrc
 
 - shell:
-    - [git submodule update --init --recursive, Installing submodules]
+    - 
+        description: Installing submodules
+        command: git submodule update --init --recursive
+    - 
+        description: Installing Vim plugins
+        command: vim "+colorscheme desert" +PluginInstall
+    -
+        description: Installing NeoVim plugins
+        command: nvim "+colorscheme desert" +PluginInstall
+    -
+        description: Installing YouCompleteMe (slow!)
+        command: ./.vim/bundle/YouCompleteMe/install.sh --clang-completer
