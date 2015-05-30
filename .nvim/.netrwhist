@@ -1,0 +1,11 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =9
+let g:netrw_dirhist_1='/Users/David/.nvim/ftplugin'
+let g:netrw_dirhist_2='/Users/David/.vim'
+let g:netrw_dirhist_3='/Users/David/.nvim'
+let g:netrw_dirhist_4='/Users/David/.vim'
+let g:netrw_dirhist_5='/Users/David/.nvim'
+let g:netrw_dirhist_6='/Users/David/.nvim/ftplugin'
+let g:netrw_dirhist_7='/Users/David/Dropbox/University_old/2014_thesis'
+let g:netrw_dirhist_8='/Users/David/Dropbox/University_old/2014_thesis/Thesis'
+let g:netrw_dirhist_9='/Users/David/Dropbox/University_old/2014_thesis'

@@ -1,0 +1,39 @@
+# \begin{}...\end{}
+snippet begin
+\begin{${1:env}}
+    ${0}
+\end{$1}
+endsnippet
+
+# an ASA command textbox
+snippet asa
+\begin{lstlisting}[style=cisco]
+${0}
+\end{lstlisting}
+endsnippet
+
+# an image with a label and caption
+# filepath makes suggestions which must be navigated with c-n and c-p:
+# tab will jump to next field
+snippet pic
+\begin{figure}
+    \includegraphics[width=\linewidth]{./img/$1}
+    \caption{$3}
+    \label{fig:${2:label}}
+\end{figure}
+endsnippet
+
+# a beamer frame (slide)
+snippet frame
+\begin{frame}
+\frametitle{${1:Untitled}}
+$0
+\end{frame}
+endsnippet
+
+# an itemize environment with an item
+snippet itemize
+\begin{itemize}
+    \item $0
+\end{itemize}
+endsnippet

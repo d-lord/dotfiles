@@ -1,0 +1,137 @@
+filetype off
+set runtimepath+=~/.nvim/bundle/vundle
+call vundle#begin()
+Plugin 'gmarik/vundle'
+" basic
+Plugin 'tpope/vim-repeat'
+" smart
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'bling/vim-airline'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " constant segfaults (27 May 2015)
+" nav
+Plugin 'Lokaltog/vim-easymotion'
+Plugin 'christoomey/vim-tmux-navigator'
+" edit
+Plugin 'tpope/vim-surround'
+Plugin 'gibiansky/vim-latex-objects'
+Plugin 'tpope/vim-commentary'
+" colorschemes
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'penicolas/simplon.vim'
+Plugin 'romainl/Apprentice'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'chriskempson/base16-vim'
+" misc
+Plugin 'ervandew/supertab'
+" try this or another plugin later: it works in vim but not neovim (30 Apr 2015)
+Plugin 'luochen1990/rainbow'
+call vundle#end()
+
+" basics
+filetype plugin indent on
+syntax on
+set hlsearch " highlight search results
+set incsearch " start searching while typing search
+set ignorecase " required for smartcase: searches are case-insensitive
+set smartcase " ignore case if search pattern is all lowercase, otherwise case-sensitive
+
+" colorscheme
+colorscheme base16-flat
+set bg=dark
+
+" workarounds: check occasionally for fixes
+" (2 Apr 2015)
+" autocmd VimEnter * colorscheme solarized
+" set bg=light
+" (23 Apr 2015)
+autocmd VimEnter * AirlineRefresh
+
+" indenting
+set softtabstop=4
+set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
+set shiftwidth=4
+set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+
+" mouse
+set mouse=ni " enabled, normal and insert mode only
+set ttymouse=xterm2 " allows (requests) tmux to pass through
+
+" misc
+set backspace=indent,eol,start	" backspace behaves like Word
+set virtualedit=all		" let the cursor go in 'invalid' places
+set hidden			" enable loading a buffer in a window that already has a modified buffer
+set wildignore=*.swp,*.sqo,*.bak,*.pyc,*.class " ignore these filetypes when completing with <Tab>
+set wildmenu			" enhanced command-line completion
+"set ttimeoutlen=50		" fix delay leaving insert mode esp in airline: is this needed in nvim?
+set formatoptions+=j		" join comment lines without the comment prefix
+
+" leader
+let mapleader = "\\"
+nnoremap <leader><space> :nohlsearch<CR>
+nnoremap <leader>p :set paste!<CR>
+nnoremap <leader>w :w<CR>
+nnoremap <leader>c :setl bufhidden=delete<CR>:bnext<CR>
+
+" custom key maps: indirect because showing working
+set <F13>^=<S-F1> " tmux 2.0 changed how it handles >12 F-keys, so F13 is now S-F1
+set <F14>^=<S-F2>
+nmap <F13> :bn<CR>
+nmap <F14> :bp<CR>
+" this 'should' work in nvim, but I think iTerm isn't configured right
+" nmap <C-Tab> :bn<CR>
+" nmap <C-S-Tab> :bp<CR>
+
+
+
+" Airline: currently doesn't init quite right (look at top & bottom before &
+" after switching to a new buffer)
+let g:airline_theme = 'base16'
+set laststatus=2 	" always show it
+set noshowmode		" don't show '--INSERT--' etc: redundant
+let g:airline_powerline_fonts = 1 " use special chars in special font
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 1 " display buffers with a single tab
+
+" EasyMotion
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+let g:EasyMotion_startofline = 0 " keep cursor colum when JK motion
+
+" YouCompleteMe
+let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
+function! ToggleYCMCompletion() " mapped below
+    if g:ycm_auto_trigger == 0
+	let g:ycm_auto_trigger=1
+    else
+	let g:ycm_auto_trigger=0
+    endif
+endfunction
+nmap <Leader>t :call ToggleYCMCompletion()<CR>
+" YouCompleteMe and UltiSnips:
+" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
+
+
+" http://neovim.org/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-input
+" Switch windows in and out of terminal mode
+:tnoremap <A-h> <C-\><C-n><C-w>h
+:tnoremap <A-j> <C-\><C-n><C-w>j
+:tnoremap <A-k> <C-\><C-n><C-w>k
+:tnoremap <A-l> <C-\><C-n><C-w>l
+:nnoremap <A-h> <C-w>h
+:nnoremap <A-j> <C-w>j
+:nnoremap <A-k> <C-w>k
+:nnoremap <A-l> <C-w>l
+" note at this point https://github.com/neovim/neovim/issues/2048 
+" (ctrl+f "177")
