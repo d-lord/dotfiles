@@ -55,7 +55,6 @@ set smarttab " insert tabs on the start of a line according to shiftwidth, not t
 
 " mouse
 set mouse=ni " enabled, normal and insert mode only
-set ttymouse=xterm2 " allows (requests) tmux to pass through
 
 " misc
 set backspace=indent,eol,start	" backspace behaves like Word
