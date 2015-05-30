@@ -13,6 +13,7 @@ call vundle#begin()
 Plugin 'gmarik/vundle'
 Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
+Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " segfaults in nvim (27 May 2015)
 Plugin 'tpope/vim-fugitive'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'altercation/vim-colors-solarized'
