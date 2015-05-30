@@ -87,6 +87,7 @@ set wildignore=*.swp,*.bak,*.pyc,*.class " ignore these filetypes when completin
 set wildmenu			" enhanced command-line completion
 set directory=.,$TEMP		" fix E303 on open file on Windows
 set ttimeoutlen=50		" fix delay leaving insert mode esp in airline
+set formatoptions+=j		" join comment lines without the comment prefix
 
 " mouse stuff
 set mouse=n " enable it for normal mode only (I just want scrolling + window resizing)
