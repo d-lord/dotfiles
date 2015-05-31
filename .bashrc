@@ -20,8 +20,8 @@ prompt_command () {
 export PROMPT_COMMAND=prompt_command
 
 # Custom bash prompt via kirsle.net/wizards/ps1.html
-PS1="\[$(tput setaf 1)$(tput bold)\]\${PROMPT_LAST_EXIT_STATUS}\[$(tput sgr0)\]"
-PS1+="\[$(tput setaf 6)$(tput bold)\]\w"
+PS1="\[$(tput setaf 160)$(tput bold)\]\${PROMPT_LAST_EXIT_STATUS}\[$(tput sgr0)\]"
+PS1+="\[$(tput setaf 33)$(tput bold)\]\w"
 PS1+="\[$(tput sgr0)\] \$ \[$(tput sgr0)\]"
 # PS1="\$"
 export PS1
