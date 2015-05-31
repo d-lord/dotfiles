@@ -18,10 +18,17 @@
         command: git submodule update --init --recursive
     - 
         description: Installing Vim plugins
-        command: vim "+colorscheme desert" +PluginInstall
-    -
-        description: Installing NeoVim plugins
-        command: nvim "+colorscheme desert" +PluginInstall
+        command: vim +PluginInstall +qall
+        stdin: true
+        stdout: true
+        stderr: true
     -
         description: Installing YouCompleteMe (slow!)
-        command: ./.vim/bundle/YouCompleteMe/install.sh --clang-completer
+        command: bin/install-ycm.sh
+        stdout: true
+        stderr: true
+    -
+        description: Installing NeoVim plugins
+        command: nvim "+colorscheme desert" +PluginInstall +qall
+        stdout: true
+        stderr: true
