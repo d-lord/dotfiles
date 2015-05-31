@@ -73,10 +73,8 @@ nnoremap <leader>w :w<CR>
 nnoremap <leader>c :setl bufhidden=delete<CR>:bnext<CR>
 
 " custom key maps: indirect because showing working
-set <F13>^=<S-F1> " tmux 2.0 changed how it handles >12 F-keys, so F13 is now S-F1
-set <F14>^=<S-F2>
-nmap <F13> :bn<CR>
-nmap <F14> :bp<CR>
+nmap <silent><S-F1> :bn<CR>
+nmap <silent><S-F2> :bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
 " nmap <C-Tab> :bn<CR>
 " nmap <C-S-Tab> :bp<CR>
