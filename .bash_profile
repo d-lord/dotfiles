@@ -23,8 +23,11 @@ irssi_notifier() {
         done
     }
 
-alias ls='ls -G'
+export CLICOLOR=1
+# please, find something less eye-watering
+export LSCOLORS="ExFxCxDxBxexexabaGaCad"
 export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+
 cd () 
 { 
     builtin cd "$*";
