@@ -1,7 +1,8 @@
 - clean: ['~']
 
 - link:
-    ~/.tmux.conf: .tmux.conf
+    ~/.tmux: .tmux
+    ~/.tmux.conf: ~/.tmux/.tmux.conf
     ~/.inputrc: .inputrc
     ~/.bash: .bash/
     ~/.bash_profile: .bash_profile
