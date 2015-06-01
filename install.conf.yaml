@@ -2,7 +2,7 @@
 
 - link:
     ~/.tmux: .tmux
-    ~/.tmux.conf: ~/.tmux/.tmux.conf
+    ~/.tmux.conf: .tmux/.tmux.conf
     ~/.inputrc: .inputrc
     ~/.bash: .bash/
     ~/.bash_profile: .bash_profile
