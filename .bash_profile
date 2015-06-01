@@ -10,6 +10,8 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
 irssi_notifier() {
     ssh dal@howbad.ru 'echo -n "" > ~/.irssi/fnotify; tail -f ~/.irssi/fnotify' | \
             while read heading message; do
