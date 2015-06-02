@@ -65,6 +65,7 @@ set wildignore=*.swp,*.sqo,*.bak,*.pyc,*.class " ignore these filetypes when com
 set wildmenu			" enhanced command-line completion
 "set ttimeoutlen=50		" fix delay leaving insert mode esp in airline: is this needed in nvim?
 set formatoptions+=j		" join comment lines without the comment prefix
+set updatetime=750		" delay until CursorHold event. extra I/O
 
 " leader
 let mapleader = "\\"
