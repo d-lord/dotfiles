@@ -70,9 +70,12 @@ set updatetime=750		" delay until CursorHold event. extra I/O
 " leader
 let mapleader = "\\"
 nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>p :set paste!<CR>
 nnoremap <leader>w :w<CR>
 nnoremap <leader>c :setl bufhidden=delete<CR>:bnext<CR>
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
 
 " custom key maps: indirect because showing working
 nmap <silent><S-F1> :bn<CR>
