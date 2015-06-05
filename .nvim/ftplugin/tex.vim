@@ -1,6 +1,9 @@
 " reserves mark y as a temporary mark
 " (is there a better way?)
 
+" stop the strange double-indenting in itemize
+let g:tex_indent_items=0
+
 " append a newline (\\) to the current line, then restore position
 nnoremap <buffer> <leader>x myA\\<Esc>`y
 
