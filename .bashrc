@@ -35,7 +35,7 @@ export PS1
 # use cd -P and pwd -P by default (follow symlinks' physical path)
 set -P
 # tmux completion
-# source ~/.bash/.bash_completion.d/tmux
+source ~/.bash/.bash_completion.d/tmux
 # any ! combination is automatically expanded on space
 bind Space:magic-space
 
