@@ -200,6 +200,3 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
-
-" vimroom: centre 80-character block on screen
-nnoremap <leader>vr :VimroomToggle<CR>
