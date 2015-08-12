@@ -46,7 +46,9 @@ set bg=dark
 " autocmd VimEnter * colorscheme solarized
 " set bg=light
 " (23 Apr 2015)
-autocmd VimEnter * AirlineRefresh
+"autocmd VimEnter * AirlineRefresh
+" (commented 01/08/15, it seems to work without and with will sometimes cause
+" pages of errors on startup, even though it works afterwards)
 
 " indenting
 set softtabstop=4
