@@ -6,16 +6,16 @@ shopt -s promptvars
 # show command instead of running on !1000
 shopt -s histverify
 
-    prompt_last_exit_status () {
-	PROMPT_LAST_EXIT_STATUS="${?}";
-	if [[ ${PROMPT_LAST_EXIT_STATUS} == "0" ]];
-	then
-	    PROMPT_LAST_EXIT_STATUS=
-	else
-	    PROMPT_LAST_EXIT_STATUS="[${PROMPT_LAST_EXIT_STATUS}] "
-	fi;
-	# PROMPT_LAST_EXIT_STATUS=; # temporary: disable it
-    }
+prompt_last_exit_status () {
+    PROMPT_LAST_EXIT_STATUS="${?}";
+    if [[ ${PROMPT_LAST_EXIT_STATUS} == "0" ]];
+    then
+	PROMPT_LAST_EXIT_STATUS=
+    else
+	PROMPT_LAST_EXIT_STATUS="[${PROMPT_LAST_EXIT_STATUS}] "
+    fi;
+    # PROMPT_LAST_EXIT_STATUS=; # temporary: disable it
+}
 
 prompt_command () {
     prompt_last_exit_status
