@@ -17,6 +17,7 @@ Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-surround'
 Plugin 'gibiansky/vim-latex-objects'
 Plugin 'tpope/vim-commentary'
+Plugin 'junegunn/vim-easy-align'
 " colorschemes
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'penicolas/simplon.vim'
@@ -140,3 +141,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 :nnoremap <A-l> <C-w>l
 " note at this point https://github.com/neovim/neovim/issues/2048 
 " (ctrl+f "177")
+
+" Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
+vmap <Enter> <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
