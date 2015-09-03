@@ -24,11 +24,6 @@
         stdout: true
         stderr: true
     -
-        description: Installing YouCompleteMe (slow!)
-        command: bin/install-ycm.sh
-        stdout: true
-        stderr: true
-    -
         description: Installing NeoVim plugins
         command: nvim "+colorscheme desert" +PlugInstall +qall
         stdout: true

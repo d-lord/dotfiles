@@ -2,7 +2,7 @@ call plug#begin('~/.nvim/plugged')
 " basic
 Plug 'tpope/vim-repeat'
 " smart
-Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " constant segfaults (27 May 2015)
