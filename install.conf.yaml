@@ -12,7 +12,6 @@
     ~/.vimrc: .vim/vimrc
     ~/.nvim: .nvim/
     ~/.nvimrc: .nvim/nvimrc
-    ~/.rbenv: .rbenv
 
 - shell:
     - 
