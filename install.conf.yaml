@@ -30,6 +30,6 @@
         stderr: true
     -
         description: Installing NeoVim plugins
-        command: nvim "+colorscheme desert" +PluginInstall +qall
+        command: nvim "+colorscheme desert" +PlugInstall +qall
         stdout: true
         stderr: true
