@@ -24,7 +24,7 @@ Plugin 'romainl/Apprentice'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'chriskempson/base16-vim'
 " misc
-Plugin 'ervandew/supertab'
+Plugin 'ervandew/supertab' " makes YouCompleteMe and UltiSnips play together
 " try this or another plugin later: it works in vim but not neovim (30 Apr 2015)
 Plugin 'luochen1990/rainbow'
 call vundle#end()
