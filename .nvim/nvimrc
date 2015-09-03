@@ -1,33 +1,30 @@
-filetype off
-set runtimepath+=~/.nvim/bundle/vundle
-call vundle#begin()
-Plugin 'gmarik/vundle'
+call plug#begin('~/.nvim/plugged')
 " basic
-Plugin 'tpope/vim-repeat'
+Plug 'tpope/vim-repeat'
 " smart
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'bling/vim-airline'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " constant segfaults (27 May 2015)
-Plugin 'airblade/vim-gitgutter' " alarmingly feature-rich
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'bling/vim-airline'
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " constant segfaults (27 May 2015)
+Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
 " nav
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'christoomey/vim-tmux-navigator'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'christoomey/vim-tmux-navigator'
 " edit
-Plugin 'tpope/vim-surround'
-Plugin 'gibiansky/vim-latex-objects'
-Plugin 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
+Plug 'gibiansky/vim-latex-objects'
+Plug 'tpope/vim-commentary'
 " colorschemes
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'penicolas/simplon.vim'
-Plugin 'romainl/Apprentice'
-Plugin 'jpo/vim-railscasts-theme'
-Plugin 'chriskempson/base16-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'penicolas/simplon.vim'
+Plug 'romainl/Apprentice'
+Plug 'jpo/vim-railscasts-theme'
+Plug 'chriskempson/base16-vim'
 " misc
-Plugin 'ervandew/supertab' " makes YouCompleteMe and UltiSnips play together
+Plug 'ervandew/supertab' " makes YouCompleteMe and UltiSnips play together
 " try this or another plugin later: it works in vim but not neovim (30 Apr 2015)
-Plugin 'luochen1990/rainbow'
-call vundle#end()
+Plug 'luochen1990/rainbow'
+call plug#end()
 
 " basics
 filetype plugin indent on
@@ -87,6 +84,8 @@ nmap <silent><S-F2> :bp<CR>
 " nmap <C-S-Tab> :bp<CR>
 
 
+" Where to put the window for vim-plug
+let g:plug_window = 'topleft new'
 
 " Airline: currently doesn't init quite right (look at top & bottom before &
 " after switching to a new buffer)
