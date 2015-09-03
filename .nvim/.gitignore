@@ -11,3 +11,6 @@ bundle/**
 
 # ctags
 tags
+
+# youcompleteme: .py is tracked
+.ycm_extra_conf.pyc
