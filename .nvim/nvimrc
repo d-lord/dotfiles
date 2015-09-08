@@ -16,6 +16,7 @@ Plug 'tpope/vim-surround'
 Plug 'gibiansky/vim-latex-objects'
 Plug 'tpope/vim-commentary'
 " colorschemes
+Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'penicolas/simplon.vim'
 Plug 'romainl/Apprentice'
