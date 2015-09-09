@@ -1,7 +1,7 @@
 " credit and/or reference:
 " http://stevelosh.com/blog/2010/09/coming-home-to-vim/
 
-set nocompatible " vi-compatible mode disables a lot of cool functionality
+set nocompatible " only relevant if we :source ~/.vimrc
 
 " Required Vundle setup
 " http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
