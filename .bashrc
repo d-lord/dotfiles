@@ -5,6 +5,8 @@
 shopt -s promptvars
 # show command instead of running on !1000
 shopt -s histverify
+# extended globs
+shopt -s extglob
 
 prompt_last_exit_status () {
     PROMPT_LAST_EXIT_STATUS="${?}";
@@ -25,7 +27,7 @@ export PROMPT_COMMAND=prompt_command
 # Custom bash prompt via kirsle.net/wizards/ps1.html
 PS1="\[$(tput setaf 160)$(tput bold)\]\${PROMPT_LAST_EXIT_STATUS}\[$(tput sgr0)\]"
 PS1+="\[$(tput setaf 33)$(tput bold)\]\w"
-PS1+="\[$(tput sgr0)\] \$ \[$(tput sgr0)\]"
+PS1+="\[$(tput setaf 120)\] \$ \[$(tput sgr0)\]"
 # PS1="\$"
 export PS1
 

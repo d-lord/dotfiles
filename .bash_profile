@@ -1,21 +1,25 @@
 # load config from .bashrc
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
+# Homebrew
 export PATH=/usr/local/bin:$PATH
 
-# MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# mine
+export PATH=$PATH:~/bin
 
 # NeoVim - only available on iTerm nightly build (as of 2 Apr 2015)
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
+# aksjdh
+export HOMEBREW_GITHUB_API_TOKEN=e5a7fdfffb69623a03a8e2da9b42bf4dd237dc17
+
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 irssi_notifier() {
     ssh dal@howbad.ru 'echo -n "" > ~/.irssi/fnotify; tail -f ~/.irssi/fnotify' | \
-            while read heading message; do
-            url=`echo \"$message\" | grep -Eo 'https?://[^ >]+' | head -1`;
+            while read -r heading message; do
+            url=$(echo \""$message"\" | grep -Eo 'https?://[^ >]+' | head -1);
 
             if [ ! "$url" ]; then
                 terminal-notifier -title "\"$heading\"" -message "\"$message\"" -activate com.apple.Terminal;
@@ -44,3 +48,18 @@ alias rc='source ~/.bashrc'
 # http://serverfault.com/a/695107/262337
 # to action e.g. the command labelled 180, run !180
 alias h='history|grep'
+
+# installed from Docker Toolkit
+alias docker-shell='source "/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh"'
+# cleanup: http://jimhoskins.com/2013/07/27/remove-untagged-docker-images.html
+# tr|cut could be replaced by awk '{print $3}'
+alias docker-clean='docker-clean-1 && docker-clean-2'
+alias docker-clean-1='docker rm $(docker ps -a -q)'
+alias docker-clean-2='docker rmi $(docker images | grep "<none>" | tr -s " " | cut -d" " -f3)'
+dbuild() {
+    if [[ -z "$1" ]]; then
+        echo "dbuild needs an argument" >&2
+        return
+    fi
+    docker build -t "${1%%+(/)}" "$HOME/docker/$1"
+}
