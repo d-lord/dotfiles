@@ -11,9 +11,6 @@ export PATH=$PATH:~/bin
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
-# aksjdh
-export HOMEBREW_GITHUB_API_TOKEN=e5a7fdfffb69623a03a8e2da9b42bf4dd237dc17
-
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 irssi_notifier() {
