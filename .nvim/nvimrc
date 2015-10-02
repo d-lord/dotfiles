@@ -101,6 +101,7 @@ set noshowmode		" don't show '--INSERT--' etc: redundant
 let g:airline_powerline_fonts = 1 " use special chars in special font
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1 " display buffers with a single tab
+let g:airline#extensions#whitespace#enabled = 0
 
 " EasyMotion
 map <Leader>l <Plug>(easymotion-lineforward)
