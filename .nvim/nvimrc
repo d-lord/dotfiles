@@ -18,6 +18,7 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'gibiansky/vim-latex-objects'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-sleuth'
 " colorschemes
 Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 Plug 'altercation/vim-colors-solarized'
@@ -53,10 +54,10 @@ set bg=dark
 " pages of errors on startup, even though it works afterwards)
 
 " indenting
-set softtabstop=4
-set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
-set shiftwidth=4
-set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
+" set softtabstop=4
+" set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
+" set shiftwidth=4
+" set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
 
 " mouse
 set mouse=ni " enabled, normal and insert mode only
