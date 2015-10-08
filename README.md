@@ -2,7 +2,7 @@
 
     git clone git://github.com/d-lord/dotfiles.git ~/dotfiles
 
-    ./install # dotbot
+    ~/install # dotbot
 
 ## Notes
 Vim (esp. complex plugins) may complain about Python if that's not installed (use homebrew)
