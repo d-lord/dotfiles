@@ -45,3 +45,18 @@ alias rc='source ~/.bashrc'
 # http://serverfault.com/a/695107/262337
 # to action e.g. the command labelled 180, run !180
 alias h='history|grep'
+
+# installed from Docker Toolkit
+alias docker-shell='source "/Applications/Docker/Docker Quickstart Terminal.app/Contents/Resources/Scripts/start.sh"'
+# cleanup: http://jimhoskins.com/2013/07/27/remove-untagged-docker-images.html
+# tr|cut could be replaced by awk '{print $3}'
+alias docker-clean='docker-clean-1 && docker-clean-2'
+alias docker-clean-1='docker rm $(docker ps -a -q)'
+alias docker-clean-2='docker rmi $(docker images | grep "<none>" | tr -s " " | cut -d" " -f3)'
+dbuild() {
+    if [[ -z "$1" ]]; then
+        echo "dbuild needs an argument" >&2
+        return
+    fi
+    docker build -t "${1%%+(/)}" "$HOME/docker/$1"
+}
