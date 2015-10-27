@@ -40,6 +40,8 @@ set smartcase " ignore case if search pattern is all lowercase, otherwise case-s
 " colorscheme
 colorscheme base16-flat
 set bg=dark
+" minor QoL for quickfix
+hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 
 " workarounds: check occasionally for fixes
 " (2 Apr 2015)
