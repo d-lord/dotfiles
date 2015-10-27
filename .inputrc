@@ -1,5 +1,2 @@
-# https://github.com/mgalgs/fuzzy_bash_completion
-set show-all-if-ambiguous on
-
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on

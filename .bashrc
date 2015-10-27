@@ -41,17 +41,9 @@ source ~/.bash/.bash_completion.d/tmux
 # any ! combination is automatically expanded on space
 bind Space:magic-space
 
-# -- fuzzy completion --
 # homebrew's bash_completion package
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
-# the script itself: https://github.com/mgalgs/fuzzy_bash_completion
-# source ~/bin/fuzzy_bash_completion
-# time fuzzy_replace_filedir_xspec
-# fuzzy_setup_for_command ls
-# fuzzy_setup_for_command cd
-# fuzzy_setup_for_command vim
-# fuzzy_setup_for_command nvim
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
