@@ -5,6 +5,8 @@
 shopt -s promptvars
 # show command instead of running on !1000
 shopt -s histverify
+# extended globs
+shopt -s extglob
 
 prompt_last_exit_status () {
     PROMPT_LAST_EXIT_STATUS="${?}";
