@@ -10,7 +10,7 @@ Plug 'junegunn/fzf.vim' " adds more commands
 Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
 " testing
 Plug 'benekastah/neomake'
-Plug 'rking/ag.vim' " `brew install the_silver_surfer`
+Plug 'rking/ag.vim' " `brew install the_silver_searcher`
 " nav
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
