@@ -69,7 +69,7 @@ nmap <C-S-Tab> :bp<CR>
 " if git repo has been checked out OK, custom colorschemes should be present. that's a big "if", so here's some handling.
 try
     colorscheme solarized
-    set bg=light " my preference in solarized
+    set bg=dark " my preference in solarized
     let g:solarized_termcolors=256 " neovim truecolor doesn't care, vim does
     " and if we're not using xterm-256color, I'd rather notice immediately
 catch /^Vim\%((\a\+)\)\=:E185/
@@ -146,6 +146,7 @@ let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are 
 
 " YouCompleteMe
 let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
+let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
 function! ToggleYCMCompletion() " mapped below
     if g:ycm_auto_trigger == 0
 	let g:ycm_auto_trigger=1

@@ -60,3 +60,8 @@ dbuild() {
     fi
     docker build -t "${1%%+(/)}" "$HOME/docker/$1"
 }
+
+# 2310 style violation count per folder
+viol() {
+    watch -n 5 grep -r '"^\["' . \| cut -f2 -d':' \| cut -f1 -d'" "' \| sort \| uniq -c
+}
