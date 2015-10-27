@@ -1,10 +1,11 @@
 # load config from .bashrc
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
+# Homebrew
 export PATH=/usr/local/bin:$PATH
 
-# MacPorts
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# mine
+export PATH=$PATH:~/bin
 
 # NeoVim - only available on iTerm nightly build (as of 2 Apr 2015)
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
