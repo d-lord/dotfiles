@@ -15,8 +15,8 @@ if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 
 irssi_notifier() {
     ssh dal@howbad.ru 'echo -n "" > ~/.irssi/fnotify; tail -f ~/.irssi/fnotify' | \
-            while read heading message; do
-            url=`echo \"$message\" | grep -Eo 'https?://[^ >]+' | head -1`;
+            while read -r heading message; do
+            url=$(echo \""$message"\" | grep -Eo 'https?://[^ >]+' | head -1);
 
             if [ ! "$url" ]; then
                 terminal-notifier -title "\"$heading\"" -message "\"$message\"" -activate com.apple.Terminal;
