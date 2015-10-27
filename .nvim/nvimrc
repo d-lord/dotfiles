@@ -8,6 +8,8 @@ Plug 'bling/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
 Plug 'junegunn/fzf.vim' " adds more commands
 Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
+" testing
+Plug 'benekastah/neomake'
 " nav
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
