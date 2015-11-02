@@ -33,8 +33,7 @@ export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 
 cd () 
 { 
-    builtin cd "$*";
-    ls;
+    builtin cd "$*" && ls;
 }
 
 alias rc='source ~/.bashrc'
