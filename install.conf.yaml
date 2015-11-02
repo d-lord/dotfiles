@@ -10,8 +10,8 @@
     ~/.gitconfig: .gitconfig
     ~/.vim: .vim/
     ~/.vimrc: .vim/vimrc
-    ~/.nvim: .nvim/
-    ~/.nvimrc: .nvim/nvimrc
+    ~/.config/nvim: nvim/
+    ~/.config/init.vim: nvim/nvimrc
 
 - shell:
     - 
