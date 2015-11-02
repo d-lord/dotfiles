@@ -13,7 +13,6 @@
     ~/.config/nvim:
         path: nvim
         create: true
-    ~/.config/init.vim: nvim/nvimrc
 
 - shell:
     - 
