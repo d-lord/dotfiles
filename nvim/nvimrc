@@ -141,6 +141,7 @@ let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
+let g:plug_window='' " defaults to 'vertical topleft new' but I'd rather it used the same window
 
 " http://neovim.org/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-input
 " Switch windows in and out of terminal mode
