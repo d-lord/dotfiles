@@ -8,8 +8,8 @@ Plug 'bling/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
 Plug 'junegunn/fzf.vim' " adds more commands
 Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
+Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
-Plug 'benekastah/neomake'
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
 " nav
 Plug 'Lokaltog/vim-easymotion'
