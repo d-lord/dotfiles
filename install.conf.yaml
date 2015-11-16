@@ -8,6 +8,7 @@
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc
     ~/.gitconfig: .gitconfig
+    ~/.gitignore_global: .gitignore
     ~/.vim: .vim/
     ~/.vimrc: .vim/vimrc
     ~/.config/nvim:

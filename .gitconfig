@@ -2,7 +2,7 @@
 	name = David Lord
 	email = eternalcat@gmail.com
 [core]
-	excludesfile = /Users/David/.gitignore_global
+	excludesfile = /home/dal/.gitignore
 	autocrlf = false
 [push]
 	default = simple
