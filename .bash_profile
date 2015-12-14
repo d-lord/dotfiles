@@ -24,7 +24,10 @@ irssi_notifier() {
                 terminal-notifier -title "\"$heading\"" -message "\"$message\"" -open "\"$url\"";
             fi;
         done
-    }
+}
+lock() {
+    sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$1";
+}
 
 export CLICOLOR=1
 # please, find something less eye-watering
