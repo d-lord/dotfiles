@@ -84,6 +84,7 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
+nnoremap <leader>e :e ~/dotfiles/nvim/init.vim<CR>
 
 " custom key maps: indirect because showing working
 nmap <silent><S-F1> :bn<CR>
