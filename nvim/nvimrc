@@ -161,3 +161,7 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" fzf.vim: quickselect files
+imap <c-x><c-f> <plug>(fzf-complete-path)
+nnoremap <leader><tab> :FZF<CR>
