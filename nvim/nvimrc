@@ -47,10 +47,6 @@ set bg=dark
 " minor QoL for quickfix
 hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 
-" workarounds: check occasionally for fixes
-" (2 Apr 2015)
-" autocmd VimEnter * colorscheme solarized
-" set bg=light
 " (23 Apr 2015)
 "autocmd VimEnter * AirlineRefresh
 " (commented 01/08/15, it seems to work without and with will sometimes cause
