@@ -11,6 +11,7 @@ Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
 Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
+Plug 'tpope/vim-sleuth'
 " nav
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
@@ -19,7 +20,6 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
 Plug 'gibiansky/vim-latex-objects'
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-sleuth'
 " colorschemes
 Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 Plug 'altercation/vim-colors-solarized'
@@ -56,7 +56,7 @@ hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 " (commented 01/08/15, it seems to work without and with will sometimes cause
 " pages of errors on startup, even though it works afterwards)
 
-" indenting
+" indenting: largely obsoleted by sleuth (I'm still testing it)
 " set softtabstop=4
 " set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
 " set shiftwidth=4
