@@ -62,6 +62,13 @@ dbuild() {
     fi
     docker build -t "${1%%+(/)}" "$HOME/docker/$1"
 }
+drun() { # start container with the specified entrypoint and colour terminal
+    if [[ $# -lt 2 ]]; then
+        echo "drun needs 2+ arguments: image entrypoint" >&2
+        return
+    fi
+    docker run -ti -e "TERM=xterm-256color" "$@"
+}
 
 # 2310 style violation count per folder
 viol() {
