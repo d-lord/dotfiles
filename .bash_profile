@@ -60,7 +60,8 @@ dbuild() {
         echo "dbuild needs an argument" >&2
         return
     fi
-    docker build -t "${1%%+(/)}" "$HOME/docker/$1"
+    # build is very verbose even with --quiet. errors still go to stderr so we silence stdout
+    docker build -t "${1%%+(/)}" "$HOME/docker/$1" >/dev/null
 }
 drun() { # start container with the specified entrypoint and colour terminal
     if [[ $# -lt 2 ]]; then
