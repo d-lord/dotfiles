@@ -47,11 +47,6 @@ set bg=dark
 " minor QoL for quickfix
 hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 
-" (23 Apr 2015)
-"autocmd VimEnter * AirlineRefresh
-" (commented 01/08/15, it seems to work without and with will sometimes cause
-" pages of errors on startup, even though it works afterwards)
-
 " indenting: largely obsoleted by sleuth (I'm still testing it)
 " set softtabstop=4
 " set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
