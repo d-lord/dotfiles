@@ -3,6 +3,7 @@ if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
 # Homebrew
 export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
 
 # mine
 export PATH=$PATH:~/bin
