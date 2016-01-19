@@ -36,6 +36,9 @@ cd ()
     builtin cd "$*" && ls;
 }
 
+# emacs --daemon
+alias emc='emacsclient -c'
+
 alias rc='source ~/.bashrc'
 
 # this seems to interact poorly with fzf (see bashrc)
