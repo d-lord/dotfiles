@@ -166,3 +166,7 @@ vmap <Enter> <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+" style marking: justin rules
+autocmd! BufEnter,WinEnter *.styled call matchadd("SpecialComment", "^\[[A-Za-z\-]*\].*$", -1)
+autocmd! BufEnter,WinEnter *.styled syn match cComment "^\[[A-Za-z\-]*\].*$"
