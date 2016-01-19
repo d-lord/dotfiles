@@ -24,7 +24,10 @@ irssi_notifier() {
                 terminal-notifier -title "\"$heading\"" -message "\"$message\"" -open "\"$url\"";
             fi;
         done
-    }
+}
+lock() {
+    sudo defaults write /Library/Preferences/com.apple.loginwindow LoginwindowText "$1";
+}
 
 export CLICOLOR=1
 # please, find something less eye-watering
@@ -60,7 +63,15 @@ dbuild() {
         echo "dbuild needs an argument" >&2
         return
     fi
-    docker build -t "${1%%+(/)}" "$HOME/docker/$1"
+    # build is very verbose even with --quiet. errors still go to stderr so we silence stdout
+    docker build -t "${1%%+(/)}" "$HOME/docker/$1" >/dev/null
+}
+drun() { # start container with the specified entrypoint and colour terminal
+    if [[ $# -lt 2 ]]; then
+        echo "drun needs 2+ arguments: image entrypoint" >&2
+        return
+    fi
+    docker run -ti -e "TERM=xterm-256color" "$@"
 }
 
 # 2310 style violation count per folder

@@ -1,5 +1,2 @@
 # Make Tab autocomplete regardless of filename case
 set completion-ignore-case on
-
-# Expand glob: eg echo file* expands to echo file1 file2
-Control-x: glob-expand-word
