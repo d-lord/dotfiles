@@ -40,6 +40,7 @@ set hlsearch " highlight search results
 set incsearch " start searching while typing search
 set ignorecase " required for smartcase: searches are case-insensitive
 set smartcase " ignore case if search pattern is all lowercase, otherwise case-sensitive
+set number
 
 " colorscheme
 colorscheme base16-flat
