@@ -66,7 +66,7 @@ dbuild() {
         return
     fi
     # build is very verbose even with --quiet. errors still go to stderr so we silence stdout
-    docker build -t "${1%%+(/)}" "$HOME/docker/$1" >/dev/null
+    docker build -t "${1%%+(/)}" "$HOME/docker/$1" #>/dev/null
 }
 drun() { # start container with the specified entrypoint and colour terminal
     if [[ $# -lt 2 ]]; then
@@ -75,6 +75,20 @@ drun() { # start container with the specified entrypoint and colour terminal
     fi
     docker run -ti -e "TERM=xterm-256color" "$@"
 }
+drmi() {
+  tmp=$(docker images | fzf --header-lines=1 -n1,2 -m | awk '{print $3}')
+  for image in $tmp; do
+    docker rmi "$image"
+  done
+}
+# Docker completion in bash
+function _dbuild_complete() {
+  pushd ~/docker >/dev/null; # can this be avoided?
+  tmp=(${2}*/);            # can this be done in one op?
+  COMPREPLY=(${tmp[@]%/}); # can this be done in one op?
+  popd >/dev/null;
+}
+complete -o nospace -F _dbuild_complete dbuild
 
 # 2310 style violation count per folder
 viol() {
