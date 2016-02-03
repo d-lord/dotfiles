@@ -2,7 +2,7 @@ call plug#begin('~/.config/nvim/plugged')
 " basic
 Plug 'tpope/vim-repeat'
 " smart
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': ['c', 'cpp', 'h', 'python', 'perl', 'sh'] }
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': [ 'c' ] }
 Plug 'SirVer/ultisnips'
 Plug 'bling/vim-airline'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
@@ -116,17 +116,6 @@ let g:EasyMotion_smartcase = 1 " type l, match l & L
 "" YouCompleteMe, UltiSnips (some overlap)
 let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
 let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-function! ToggleYCMCompletion() " mapped below
-    if g:ycm_auto_trigger == 0
-	let g:ycm_auto_trigger=1
-    else
-	let g:ycm_auto_trigger=0
-    endif
-endfunction
-nmap <Leader>t :call ToggleYCMCompletion()<CR>
-" one day, lazy loading YCM will change:
-" https://github.com/junegunn/vim-plug/issues/265
-nnoremap <Leader>y :call youcompleteme#Enable()<CR>
 
 " Together:
 " http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
