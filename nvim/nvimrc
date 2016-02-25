@@ -4,7 +4,8 @@ Plug 'tpope/vim-repeat'
 " smart
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer', 'for': [ 'c' ] }
 Plug 'SirVer/ultisnips'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
 Plug 'junegunn/fzf.vim' " adds more commands
 Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
