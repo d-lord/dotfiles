@@ -12,7 +12,8 @@ Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
 Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth' " auto-detect indent settings
+Plug 'AndrewRadev/sideways.vim' " moving parameters around
 " nav
 Plug 'Lokaltog/vim-easymotion'
 Plug 'christoomey/vim-tmux-navigator'
@@ -158,3 +159,6 @@ autocmd! BufEnter,WinEnter *.styled syn match cComment "^\[[A-Za-z\-]*\].*$"
 " fzf.vim: quickselect files
 imap <c-x><c-f> <plug>(fzf-complete-path)
 nnoremap <leader><tab> :FZF<CR>
+
+nmap <leader>b :SidewaysLeft<CR>
+nmap <leader>n :SidewaysRight<CR>
