@@ -44,6 +44,7 @@ set smartcase " ignore case if search pattern is all lowercase, otherwise case-s
 set number
 
 " colorscheme
+set termguicolors
 colorscheme base16-flat
 set bg=dark
 " minor QoL for quickfix

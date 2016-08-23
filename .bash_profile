@@ -8,8 +8,6 @@ export PATH=/usr/local/sbin:$PATH
 # mine
 export PATH=$PATH:~/bin
 
-# NeoVim - only available on iTerm nightly build (as of 2 Apr 2015)
-export NVIM_TUI_ENABLE_TRUE_COLOR=1
 export EDITOR=nvim
 
 # jellybeans and reverse
