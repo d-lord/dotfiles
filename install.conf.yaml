@@ -7,6 +7,8 @@
     ~/.bash: .bash/
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc
+    ~/.zshrc: .zshrc
+    ~/.oh-my-zsh: .oh-my-zsh
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore
     ~/.vim: .vim/
