@@ -1,17 +1,6 @@
 # load config from .bashrc
 if [ -f ~/.bashrc ]; then . ~/.bashrc; fi
 
-# Homebrew
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
-
-# mine
-export PATH=$PATH:~/bin
-
-export EDITOR=nvim
-
-# jellybeans and reverse
-export FZF_DEFAULT_OPTS="--color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104 --color info:183,prompt:110,spinner:107,pointer:167,marker:215 --reverse"
 
 irssi_notifier() {
     ssh dal@howbad.ru 'echo -n "" > ~/.irssi/fnotify; tail -f ~/.irssi/fnotify' | \

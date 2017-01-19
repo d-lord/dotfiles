@@ -4,6 +4,7 @@
     ~/.tmux: .tmux
     ~/.tmux.conf: .tmux/.tmux.conf
     ~/.inputrc: .inputrc
+    ~/.profile: .profile
     ~/.bash: .bash/
     ~/.bash_profile: .bash_profile
     ~/.bashrc: .bashrc
