@@ -153,8 +153,8 @@ vmap <Enter> <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " style marking: justin rules
-autocmd! BufEnter,WinEnter *.styled call matchadd("SpecialComment", "^\[[A-Za-z\-]*\].*$", -1)
-autocmd! BufEnter,WinEnter *.styled syn match cComment "^\[[A-Za-z\-]*\].*$"
+" autocmd! BufEnter,WinEnter *.styled call matchadd("SpecialComment", "^\[[A-Za-z\-]*\].*$", -1)
+" autocmd! BufEnter,WinEnter *.styled syn match cComment "^\[[A-Za-z\-]*\].*$"
 
 " fzf.vim: quickselect files
 imap <c-x><c-f> <plug>(fzf-complete-path)
