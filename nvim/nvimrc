@@ -86,9 +86,12 @@ vnoremap <leader>y "+y
 nnoremap <leader>e :e ~/dotfiles/nvim/init.vim<CR>
 nnoremap <leader>v :v/^\s*[#\n]/p<CR>
 
-" custom key maps: indirect because showing working
-nmap <silent><S-F1> :bn<CR>
-nmap <silent><S-F2> :bp<CR>
+" I hate terminals
+" iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
+set <F13>^=[1;2P
+set <F14>^=[1;2Q
+nmap <silent><F13> :bn<CR>
+nmap <silent><F14> :bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
 " nmap <C-Tab> :bn<CR>
 " nmap <C-S-Tab> :bp<CR>
