@@ -20,7 +20,7 @@ Plugin 'jpo/vim-railscasts-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
 Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe' # du -h -d 1 . --> 396M ./bundle/YouCompleteMe
 Plugin 'runsisi/consolas-font-for-powerline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'Lokaltog/vim-easymotion'
@@ -50,6 +50,8 @@ nnoremap <leader>c :set relativenumber!<CR>
 nnoremap <leader><space> :noh<CR>
 " toggle paste mode
 nnoremap <leader>p :set paste!<CR>
+" edit vimrc
+nnoremap <leader>e :e ~/.vimrc<CR>
 
 " custom key maps
 " experimental: jk to <Esc>
