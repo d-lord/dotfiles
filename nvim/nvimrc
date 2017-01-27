@@ -29,9 +29,7 @@ Plug 'romainl/Apprentice'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
 " misc
-Plug 'ervandew/supertab' " makes YouCompleteMe and UltiSnips play together
-" try this or another plugin later: it works in vim but not neovim (30 Apr 2015)
-Plug 'luochen1990/rainbow'
+Plug 'junegunn/rainbow_parentheses.vim'
 call plug#end()
 
 " basics
@@ -46,7 +44,8 @@ set showcmd " show normal command while typing
 
 " colorscheme
 set termguicolors
-colorscheme base16-flat
+" colorscheme base16-flat
+colorscheme apprentice
 set bg=dark
 " minor QoL for quickfix
 hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
@@ -74,6 +73,9 @@ set wildmenu			" enhanced command-line completion
 set formatoptions+=j		" join comment lines without the comment prefix
 set updatetime=750		" delay until CursorHold event. extra I/O
 
+inoremap <C-e> <C-o><C-e>
+inoremap <C-y> <C-o><C-y>
+
 " leader
 let mapleader = "\\"
 nnoremap <leader><space> :nohlsearch<CR>
@@ -86,8 +88,11 @@ vnoremap <leader>y "+y
 nnoremap <leader>e :e ~/dotfiles/nvim/init.vim<CR>
 nnoremap <leader>v :v/^\s*[#\n]/p<CR>
 
-" I hate terminals
-" iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
+" toggle rainbow parentheses
+nnoremap <leader>r :RainbowParentheses!!<CR>
+
+" <C-Tab> and <C-S-Tab> to change buffers
+" iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>. I hate terminals
 set <F13>^=[1;2P
 set <F14>^=[1;2Q
 nmap <silent><F13> :bn<CR>
@@ -95,7 +100,6 @@ nmap <silent><F14> :bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
 " nmap <C-Tab> :bn<CR>
 " nmap <C-S-Tab> :bp<CR>
-
 
 " Where to put the window for vim-plug
 let g:plug_window = 'topleft new'
