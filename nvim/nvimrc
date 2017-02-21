@@ -7,7 +7,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
 Plug 'junegunn/fzf.vim' " adds more commands
-Plug 'airblade/vim-gitgutter' " alarmingly feature-rich
+Plug 'tpope/vim-fugitive' " alarmingly feature-rich
+Plug 'airblade/vim-gitgutter' " also alarmingly feature-rich
 Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
@@ -23,13 +24,15 @@ Plug 'gibiansky/vim-latex-objects'
 Plug 'tpope/vim-commentary'
 " colorschemes
 Plug 'vim-scripts/ScrollColors' " for testing colorschemes
-Plug 'altercation/vim-colors-solarized'
+Plug 'frankier/neovim-colors-solarized-truecolor-only'
 Plug 'penicolas/simplon.vim'
 Plug 'romainl/Apprentice'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
 " misc
 Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'keith/swift.vim'
+Plug 'qpkorr/vim-bufkill'
 call plug#end()
 
 " basics
@@ -140,18 +143,12 @@ let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 let g:plug_window='' " defaults to 'vertical topleft new' but I'd rather it used the same window
 
-" http://neovim.org/doc/user/nvim_terminal_emulator.html#nvim-terminal-emulator-input
-" Switch windows in and out of terminal mode
-:tnoremap <A-h> <C-\><C-n><C-w>h
-:tnoremap <A-j> <C-\><C-n><C-w>j
-:tnoremap <A-k> <C-\><C-n><C-w>k
-:tnoremap <A-l> <C-\><C-n><C-w>l
-:nnoremap <A-h> <C-w>h
-:nnoremap <A-j> <C-w>j
-:nnoremap <A-k> <C-w>k
-:nnoremap <A-l> <C-w>l
-" note at this point https://github.com/neovim/neovim/issues/2048 
-" (ctrl+f "177")
+" quick window navigation
+" if <C-h> doesn't work, update neovim - it used to be caused by: https://github.com/neovim/neovim/issues/2048 
+:nnoremap <C-h> <C-w>h
+:nnoremap <C-j> <C-w>j
+:nnoremap <C-k> <C-w>k
+:nnoremap <C-l> <C-w>l
 
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
@@ -166,6 +163,10 @@ nmap ga <Plug>(EasyAlign)
 " fzf.vim: quickselect files
 imap <c-x><c-f> <plug>(fzf-complete-path)
 nnoremap <leader><tab> :FZF<CR>
+
+" vim-bufkill (ie <C-w> c without killing the window too)
+nnoremap <C-c> :BD<cr>
+
 
 nmap <leader>b :SidewaysLeft<CR>
 nmap <leader>n :SidewaysRight<CR>
