@@ -3,6 +3,7 @@
 set -e
 
 CONFIG="install.conf.yaml"
+MAC_CONFIG="macos.conf.yaml"
 DOTBOT_DIR="dotbot"
 
 DOTBOT_BIN="bin/dotbot"
@@ -12,3 +13,8 @@ cd "${BASEDIR}"
 git submodule update --init --recursive "${DOTBOT_DIR}"
 
 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+
+if [[ $(uname) == 'Darwin' ]]; then
+  echo 'Configuring macOS'
+  "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${MAC_CONFIG}" "${@}"
+fi
