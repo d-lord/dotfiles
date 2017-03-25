@@ -103,6 +103,9 @@ nmap <silent><F14> :bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
 " nmap <C-Tab> :bn<CR>
 " nmap <C-S-Tab> :bp<CR>
+" make it insert mode too
+imap <silent><F13> <C-o>:bn<CR>
+imap <silent><F14> <C-o>:bp<CR>
 
 " Where to put the window for vim-plug
 let g:plug_window = 'topleft new'
