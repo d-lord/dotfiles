@@ -25,7 +25,6 @@ Plug 'tpope/vim-commentary'
 " colorschemes
 Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'penicolas/simplon.vim'
 Plug 'romainl/Apprentice'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
