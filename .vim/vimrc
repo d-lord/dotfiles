@@ -30,7 +30,6 @@ Plugin 'gibiansky/vim-latex-objects'
 Plugin 'SirVer/ultisnips'
 Plugin 'ervandew/supertab'
 Plugin 'junegunn/vim-easy-align'
-Plugin 'penicolas/simplon.vim'
 Plugin 'romainl/Apprentice'
 
 " All of your Plugins must be added before the following line
