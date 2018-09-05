@@ -15,7 +15,7 @@
     ~/.vim: .vim/
     ~/.vimrc: .vim/vimrc
     ~/.config/nvim:
-        path: nvim
+        path: nvim_core
         create: true
 
 - shell:
@@ -23,13 +23,39 @@
         description: Installing submodules
         command: git submodule update --init --recursive
     - 
-        description: Installing Vim plugins
+        description: Installing vim plugins
         command: vim +PluginInstall +qall
         stdin: true
         stdout: true
         stderr: true
     -
-        description: Installing NeoVim plugins
+        description: Installing python3 from homebrew
+        command: brew install python3
+        stderr: true
+    -
+        description: Installing zsh from homebrew
+        command: brew install zsh
+        stderr: true
+    -
+        description: Adding homebrew zsh to /etc/shells
+        command: grep '/usr/local/bin/zsh' /etc/shells || sudo echo '/usr/local/bin/zsh' >> /etc/shells
+        stdin: true
+        stdout: true
+        stderr: true
+    -
+        description: Changing shell to zsh
+        command: chsh -s /usr/local/bin/zsh
+    -
+        description: Installing neovim Python
+        command: pip3 install neovim
+        stderr: true
+    -
+        description: Installing neovim core plugins
         command: nvim "+colorscheme desert" +PlugInstall +qall
+        stdout: true
+        stderr: true
+    -
+        description: Installing neovim rice plugins
+        command: nvim -u ~/dotfiles/nvim_rice/init.vim "+colorscheme desert" +PlugInstall +qall
         stdout: true
         stderr: true

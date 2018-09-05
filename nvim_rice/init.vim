@@ -1,9 +1,9 @@
-call plug#begin('~/.config/nvim/plugged')
+let &rtp = substitute(&rtp, "\.config\/nvim", "dotfiles/nvim_rice", "g")
+call plug#begin('~/dotfiles/nvim_rice/plugged')
 " basic
 Plug 'tpope/vim-repeat'
 " smart
-Plug 'SirVer/ultisnips'
-Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'  " commented out for 40ms startup improvement
 Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
 Plug 'junegunn/fzf.vim' " adds more commands
@@ -13,26 +13,26 @@ Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
 Plug 'tpope/vim-sleuth' " auto-detect indent settings
-Plug 'AndrewRadev/sideways.vim' " moving parameters around
+" Plug 'AndrewRadev/sideways.vim' " moving parameters around
 " nav
 Plug 'Lokaltog/vim-easymotion'
-Plug 'christoomey/vim-tmux-navigator'
 " edit
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
-Plug 'gibiansky/vim-latex-objects'
+" Plug 'gibiansky/vim-latex-objects'  " unused
 Plug 'tpope/vim-commentary'
 " colorschemes
-Plug 'vim-scripts/ScrollColors' " for testing colorschemes
-Plug 'frankier/neovim-colors-solarized-truecolor-only'
-Plug 'romainl/Apprentice'
-Plug 'jpo/vim-railscasts-theme'
+" Plug 'vim-scripts/ScrollColors' " for testing colorschemes
+" Plug 'frankier/neovim-colors-solarized-truecolor-only'  " unused
+" Plug 'romainl/Apprentice'
+" Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
+" Plug 'fenetikm/falcon'
 " misc
-Plug 'junegunn/rainbow_parentheses.vim'
-Plug 'keith/swift.vim'
 Plug 'qpkorr/vim-bufkill'
 call plug#end()
+
+source ~/dotfiles/nvim_shared/shared.vim
 
 " basics
 filetype plugin indent on
@@ -46,8 +46,9 @@ set showcmd " show normal command while typing
 
 " colorscheme
 set termguicolors
-" colorscheme base16-flat
-colorscheme apprentice
+colorscheme base16-flat
+" colorscheme apprentice
+" colorscheme falcon
 set bg=dark
 " minor QoL for quickfix
 hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
@@ -55,12 +56,6 @@ hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 hi clear CursorLine
 hi CursorLineNr term=bold ctermfg=14 gui=bold guifg=Yellow
 set cursorline
-
-" indenting: largely obsoleted by sleuth (I'm still testing it)
-" set softtabstop=4
-" set tabstop=8 " apparently non-8 can get breaky (see :he 'tabstop')
-" set shiftwidth=4
-" set smarttab " insert tabs on the start of a line according to shiftwidth, not tabstop
 
 " mouse
 set mouse=ni " enabled, normal and insert mode only
@@ -75,28 +70,18 @@ set wildmenu			" enhanced command-line completion
 set formatoptions+=j		" join comment lines without the comment prefix
 set updatetime=750		" delay until CursorHold event. extra I/O
 
+" scroll during insert mode
 inoremap <C-e> <C-o><C-e>
 inoremap <C-y> <C-o><C-y>
 
 " leader
-let mapleader = "\\"
-nnoremap <leader><space> :nohlsearch<CR>
-nnoremap <leader>w :w<CR>
-nnoremap <leader>c :setl bufhidden=delete<CR>:bnext<CR>
-nnoremap <leader>p "+p
-nnoremap <leader>P "+P
-nnoremap <leader>y "+y
-vnoremap <leader>y "+y
-nnoremap <leader>e :e ~/dotfiles/nvim/init.vim<CR>
-nnoremap <leader>v :v/^\s*[#\n]/p<CR>
-
-" toggle rainbow parentheses
-nnoremap <leader>r :RainbowParentheses!!<CR>
+nnoremap <leader>e :e ~/dotfiles/nvim_rice/init.vim<CR>
 
 " <C-Tab> and <C-S-Tab> to change buffers
 " iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>. I hate terminals
-set <F13>^=[1;2P
-set <F14>^=[1;2Q
+" set <F13>^=[1;2P
+" set <F14>^=[1;2Q
+" F13 is ^[ + [25~, F14 is ^[ + [26~
 nmap <silent><F13> :bn<CR>
 nmap <silent><F14> :bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
@@ -128,21 +113,6 @@ nmap s <Plug>(easymotion-s)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1 " type l, match l & L
 
-"" YouCompleteMe, UltiSnips (some overlap)
-let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
-let g:ycm_global_ycm_extra_conf = '~/.config/nvim/.ycm_extra_conf.py'
-
-" Together:
-" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
-
 let g:plug_window='' " defaults to 'vertical topleft new' but I'd rather it used the same window
 
 " quick window navigation
@@ -158,10 +128,6 @@ vmap <Enter> <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" style marking: justin rules
-" autocmd! BufEnter,WinEnter *.styled call matchadd("SpecialComment", "^\[[A-Za-z\-]*\].*$", -1)
-" autocmd! BufEnter,WinEnter *.styled syn match cComment "^\[[A-Za-z\-]*\].*$"
-
 " fzf.vim: quickselect files
 imap <c-x><c-f> <plug>(fzf-complete-path)
 nnoremap <leader><tab> :FZF<CR>
@@ -169,6 +135,7 @@ nnoremap <leader><tab> :FZF<CR>
 " vim-bufkill (ie <C-w> c without killing the window too)
 nnoremap <C-c> :BD<cr>
 
+" nmap <leader>b :SidewaysLeft<CR>
+" nmap <leader>n :SidewaysRight<CR>
 
-nmap <leader>b :SidewaysLeft<CR>
-nmap <leader>n :SidewaysRight<CR>
+nmap <leader>q :FZF ~/quicklinks<CR>

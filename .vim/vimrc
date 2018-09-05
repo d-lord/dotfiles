@@ -7,39 +7,38 @@ set nocompatible " only relevant if we :source ~/.vimrc
 " http://blog.thomasupton.com/2014/02/migrating-from-pathogen-to-vundle/
 " 23/08/14
 filetype off
-set runtimepath+=~/.vim/bundle/vundle
+set runtimepath+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-Plugin 'gmarik/vundle'
+" in line with 'vim' being my lightweight editor and 'nvim' being more
+" full-featured, I'm aiming to disable unused plugins for performance.
+Plugin 'VundleVim/Vundle.vim'
 Plugin 'tpope/vim-repeat'
 Plugin 'bling/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " segfaults in nvim (27 May 2015)
-Plugin 'tpope/vim-fugitive'
+" Plugin 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " segfaults in nvim (27 May 2015)
+" Plugin 'tpope/vim-fugitive'
 Plugin 'jpo/vim-railscasts-theme'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'tpope/vim-surround'
-Plugin 'christoomey/vim-tmux-navigator'
+" Plugin 'christoomey/vim-tmux-navigator'
 " Plugin 'Valloric/YouCompleteMe' # du -h -d 1 . --> 396M ./bundle/YouCompleteMe
 Plugin 'runsisi/consolas-font-for-powerline'
 Plugin 'Lokaltog/powerline-fonts'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'vim-scripts/wombat256.vim'
 Plugin 'tpope/vim-commentary'
-Plugin 'gibiansky/vim-latex-objects'
-Plugin 'SirVer/ultisnips'
-Plugin 'ervandew/supertab'
-Plugin 'junegunn/vim-easy-align'
+" Plugin 'gibiansky/vim-latex-objects'
+" Plugin 'SirVer/ultisnips'
+" Plugin 'ervandew/supertab'
+" Plugin 'junegunn/vim-easy-align'
 Plugin 'romainl/Apprentice'
+" Common Lisp
+Plugin 'kovisoft/slimv'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
-" make YouCompleteMe and eclim play nice
-" eclim doesn't feature in Vundle afaik
-let g:EclimCompletionMethod = 'omnifunc'
-
 
 " leader commands
 let mapleader = "\\"
@@ -50,13 +49,25 @@ nnoremap <leader><space> :noh<CR>
 " toggle paste mode
 nnoremap <leader>p :set paste!<CR>
 " edit vimrc
-nnoremap <leader>e :e ~/.vimrc<CR>
+" nnoremap <leader>e :e ~/.vimrc<CR>
+" shortcuts to system clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+nnoremap <leader>y "+y
+vnoremap <leader>y "+y
+nnoremap <leader>Y :%y+<CR>
 
 " custom key maps
 " experimental: jk to <Esc>
 inoremap jk <Esc>
 " backspace complements x
 nnoremap <BS> hx
+" window movement
+nmap <silent> <C-J> :wincmd j<CR>
+imap <silent> <C-J> <Esc>:wincmd j<CR>
+nmap <silent> <C-K> :wincmd k<CR>
+nmap <silent> <C-H> :wincmd h<CR>
+nmap <silent> <C-L> :wincmd l<CR>
 
 " I hate terminals
 " iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>
@@ -127,10 +138,10 @@ if has("win32") || has("win64")
 else
 " --- vim-airline ---
     try
-	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline " if font is installed
+	set guifont=DejaVu\ Sans\ Mono\ for\ Powerline:h16 " if font is installed
 	let g:airline_powerline_fonts = 1 " enables fancy characters in airline
     catch /^Vim\%((\a\+)\)\=:E596/ " font is not installed
-	set guifont=Monaco
+	set guifont=Monaco:h16
     endtry
 endif
 let g:airline_theme = 'solarized' 		    " blends in with windows
@@ -145,28 +156,6 @@ let g:airline#extensions#tabline#tab_nr_type = 1    " configure how numbers are 
 "let g:airline#extensions#tabline#buffer_nr_show = 1    " not sure if I want this yet, shows buffer number above
 
 " other plugin conf...
-
-" YouCompleteMe
-let g:ycm_confirm_extra_conf = 0 " automatically load .ycm_extra_conf.py files
-let g:ycm_global_ycm_extra_conf = '~/.vim/.ycm_extra_conf.py'
-function! ToggleYCMCompletion() " mapped below
-    if g:ycm_auto_trigger == 0
-	let g:ycm_auto_trigger=1
-    else
-	let g:ycm_auto_trigger=0
-    endif
-endfunction
-nmap <Leader>t :call ToggleYCMCompletion()<CR>
-" YouCompleteMe and UltiSnips:
-" http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme
-" make YCM compatible with UltiSnips (using supertab)
-let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-let g:SuperTabDefaultCompletionType = '<C-n>'
-" better key bindings for UltiSnipsExpandTrigger
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
 " EasyMotion
 " Gif config
@@ -202,3 +191,6 @@ augroup resCur
   autocmd!
   autocmd BufWinEnter * call ResCur()
 augroup END
+
+" drafting bulletins
+autocmd BufRead Bulletin.txt set textwidth=80 colorcolumn=+1
