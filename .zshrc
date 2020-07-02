@@ -110,3 +110,14 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
 path+=~/.emacs.d/bin
+
+# Simple function to take a .mov recording and turn it into an Apple-compatible .mp4
+mov2mp4 () {
+	if (( $# != 1 ))
+	then
+		echo "Usage: mov2mp4 <filename.mov>"
+		return 1
+	else
+		ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
+	fi
+}
