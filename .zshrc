@@ -121,3 +121,7 @@ mov2mp4 () {
 		ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
 	fi
 }
+
+# if iTerm is in CSI u mode, I often find myself hitting shift+space by accident
+# eg "echo !$ foo" -- between $ and foo I'm often still holding shift
+bindkey ";2u" magic-space
