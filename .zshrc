@@ -122,6 +122,12 @@ mov2mp4 () {
 	fi
 }
 
-# if iTerm is in CSI u mode, I often find myself hitting shift+space by accident
+#
+# binds for iTerm's CSI u mode aka libtermkey/libtickit
+# https://iterm2.com/documentation-csiu.html
+# opt+left and right
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+# I often find myself hitting shift+space by accident
 # eg "echo !$ foo" -- between $ and foo I'm often still holding shift
 bindkey ";2u" magic-space
