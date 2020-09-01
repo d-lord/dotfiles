@@ -41,3 +41,6 @@
         command: nvim -u ~/dotfiles/nvim_rice/init.vim "+colorscheme desert" +PlugInstall +qall
         stdout: true
         stderr: true
+    -
+        description: Creating ~/bin
+        command: mkdir ~/bin
