@@ -10,6 +10,9 @@ alias pip=pip3
 # mine
 export PATH=$PATH:~/bin
 
+# use neovim as a manpage viewer (syntax highlighting, gO, etc)
+export MANPAGER="nvim -c 'set ft=man' -"
+
 # use bat instead. can still use cat with `\cat`
 alias cat=bat
 
