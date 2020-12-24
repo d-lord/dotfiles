@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='nvim'
-export GIT_EDITOR='TERM=xterm-24bit emacsclient -t -a=\"\"'
+export GIT_EDITOR='emacsclient -t -a=\"\"'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -94,7 +94,8 @@ path+=~/bin
 
 alias uqaws="aws-cli-federator -profile default"
 
-alias e='TERM=xterm-24bit emacsclient -t -a ""'
+# editor stuff
+alias e='emacsclient -t -a=\"\"'
 alias vice="nvim -u ~/dotfiles/nvim_rice/init.vim"
 if (( $+commands[nvim] )); then
   alias vim=nvim
@@ -132,3 +133,14 @@ bindkey '^[[1;3C' forward-word
 # I often find myself hitting shift+space by accident
 # eg "echo !$ foo" -- between $ and foo I'm often still holding shift
 bindkey ";2u" magic-space
+
+### ================================
+### Truecolour terminal shenanigans
+### ================================
+# To teach a terminal how to use it (ie create a terminfo file):
+# https://gitlab.com/skybert/my-little-friends/blob/master/x/xterm-24bit.terminfo
+# I have iTerm configured to use xterm-24bit by default.
+# If I've set TERM=xterm-24bit in iTerm, downgrade that for ssh - remote hosts probably don't have the terminfo
+if [[ "$TERM" == "xterm-24bit" ]]; then
+  alias ssh='TERM=xterm-256color ssh';
+fi
