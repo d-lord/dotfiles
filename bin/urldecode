@@ -1,0 +1,12 @@
+#!/usr/bin/env python3
+
+from urllib.parse import unquote
+import argparse, sys
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('instream', nargs='?', type=argparse.FileType('r'),
+                        default=sys.stdin)
+    args = parser.parse_args()
+
+    print(unquote(args.instream.read()))
