@@ -8,7 +8,10 @@ alias python=python3
 alias pip=pip3
 
 # mine
-export PATH=$PATH:~/bin
+export PATH=~/bin:$PATH
+
+# doom emacs
+export PATH=$PATH:~/.emacs.d/bin
 
 # use neovim as a manpage viewer (syntax highlighting, gO, etc)
 export MANPAGER="nvim -c 'set ft=man' -"
