@@ -134,6 +134,8 @@ bindkey '^[[1;3C' forward-word
 # eg "echo !$ foo" -- between $ and foo I'm often still holding shift
 bindkey ";2u" magic-space
 
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
 ### ================================
 ### Truecolour terminal shenanigans
 ### ================================
