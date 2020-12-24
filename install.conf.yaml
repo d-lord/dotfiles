@@ -18,6 +18,9 @@
     ~/.config/nvim_rice:
         path: nvim_rice
         create: true
+    ~/bin:
+        path: bin
+        create: true
 
 - shell:
     - 
@@ -41,6 +44,3 @@
         command: nvim -u ~/dotfiles/nvim_rice/init.vim "+colorscheme desert" +PlugInstall +qall
         stdout: true
         stderr: true
-    -
-        description: Creating ~/bin
-        command: mkdir ~/bin

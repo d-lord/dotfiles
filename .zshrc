@@ -115,17 +115,6 @@ export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap 
 # doom emacs
 path+=~/.emacs.d/bin
 
-mov2mp4 () {
-  zparseopts -D -- h=help -help=help
-  if [[ -n $help || $# != 1 ]]; then
-    echo "Usage: mov2mp4 <filename.mov>"
-    echo "mov2mp4 is a simple function to take a .mov video (e.g. a QuickTime screen recording) and turn it into an Apple-compatible .mp4."
-    return 1
-  else
-    ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
-  fi
-}
-
 #
 # binds for iTerm's CSI u mode aka libtermkey/libtickit
 # https://iterm2.com/documentation-csiu.html
