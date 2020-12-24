@@ -136,6 +136,13 @@ bindkey ";2u" magic-space
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
 
+# pyenv setup. note that this roughly doubles zsh startup time (0.08s to 0.14s)
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+# speedier version which will probably bite me because it's home-brewed:
+alias pyenv='unalias pyenv && eval "$(pyenv init -)" && pyenv $@'
+
 ### ================================
 ### Truecolour terminal shenanigans
 ### ================================
