@@ -109,17 +109,18 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 # preview files in ctrl+r by pressing ?
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
+# doom emacs
 path+=~/.emacs.d/bin
 
-# Simple function to take a .mov recording and turn it into an Apple-compatible .mp4
 mov2mp4 () {
-	if (( $# != 1 ))
-	then
-		echo "Usage: mov2mp4 <filename.mov>"
-		return 1
-	else
-		ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
-	fi
+  zparseopts -D -- h=help -help=help
+  if [[ -n $help || $# != 1 ]]; then
+    echo "Usage: mov2mp4 <filename.mov>"
+    echo "mov2mp4 is a simple function to take a .mov video (e.g. a QuickTime screen recording) and turn it into an Apple-compatible .mp4."
+    return 1
+  else
+    ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
+  fi
 }
 
 #
