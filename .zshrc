@@ -100,6 +100,8 @@ alias vice="nvim -u ~/dotfiles/nvim_rice/init.vim"
 if (( $+commands[nvim] )); then
   alias vim=nvim
 fi
+# heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit
+alias magit="emacsclient -nw --eval '(magit-status)'"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
