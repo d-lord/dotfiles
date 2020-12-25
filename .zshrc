@@ -74,7 +74,7 @@ source $ZSH/oh-my-zsh.sh
 #   export EDITOR='mvim'
 # fi
 export EDITOR='nvim'
-export GIT_EDITOR='emacsclient -t -a=\"\"'
+export GIT_EDITOR='emacsclient -t -a=""'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -91,7 +91,7 @@ export GIT_EDITOR='emacsclient -t -a=\"\"'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # editor stuff
-alias e='emacsclient -t -a=\"\"'
+alias e='emacsclient -t -a=""'
 alias vice="nvim -u ~/dotfiles/nvim_rice/init.vim"
 if (( $+commands[nvim] )); then
   alias vim=nvim
