@@ -1,0 +1,38 @@
+#!/usr/bin/env zsh
+# with heavy reference to http://zsh.sourceforge.net/Doc/Release/Expansion.html#Parameter-Expansion
+
+# resizing will target these widths
+target_sizes=(480 720 1080 1440 1920) # px
+
+zparseopts -D -- h=help -help=help
+if [[ -n $help || $# != 1 ]]; then
+    echo "Usage: image2webp <filename>"
+    echo "Prepares an image for publication on the web."
+    echo "Creates an output folder and copies resized versions into it, in current and webp formats."
+    echo "Targets these widths: $target_sizes"
+    echo "Dependencies: cwebp, imagemagick (\`convert\`). Both are available through homebrew."
+    return 1
+fi
+
+# pushd to source directory
+ pushd $(dirname "$1")
+# ensure output directory exists
+[[ ! -d output ]] && mkdir output
+# source = filename in current dir
+source="${1:a:t}"
+# determine image size
+width=$(magick identify -format '%[fx:w]' "$source")
+for size in $target_sizes; do
+    if [[ $size -le $width ]]; then
+	# r: root name, ie no extension
+	# e: extension, ie no root name
+	target_name="${source:r}-${size}.${source:e}"
+        convert "$source" -resize "$size"x "output/$target_name"
+	cwebp "output/$target_name" -o "output/${target_name:r}.webp"
+    fi
+done
+# if the original image is wider than any target size, create image-max.{ext} too
+if [[ $target_sizes[-1] -lt $width ]]; then
+    cp "$source" output/"${source:r}-max.${source:e}"
+    cwebp "output/${source:r}-max.${source:e}" -o "output/${source:r}-max.webp"
+fi
