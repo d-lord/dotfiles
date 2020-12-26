@@ -5,8 +5,7 @@
 export ZSH="$HOME/.oh-my-zsh"
 
 # zsh doesn't read ~/.profile by default
-[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
-
+# [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -91,6 +90,7 @@ export GIT_EDITOR='emacsclient -t -a=""'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # editor stuff
+export EDITOR=vim
 alias e='emacsclient -t -a=""'
 alias vice="nvim -u ~/dotfiles/nvim_rice/init.vim"
 if (( $+commands[nvim] )); then
