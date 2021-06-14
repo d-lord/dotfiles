@@ -72,8 +72,6 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='nvim'
-export GIT_EDITOR='emacsclient -t -a=""'
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -89,15 +87,26 @@ export GIT_EDITOR='emacsclient -t -a=""'
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+#
 # editor stuff
-export EDITOR=vim
-alias e='emacsclient -t -a=""'
-alias vice="nvim -u ~/dotfiles/nvim_rice/init.vim"
+#
+
+# vim section
+# $EDITOR is the quick-edit tool, so we use vanilla nvim for that
+export EDITOR=nvim
+# lots of other stuff goes through the rice (vice) version
+vice_cmd="nvim -u ~/dotfiles/nvim_rice/init.vim"
+alias vice=$vice_cmd
+alias v=$vice_cmd
 if (( $+commands[nvim] )); then
   alias vim=nvim
 fi
+
+# emacs section, preferring it for git stuff
+alias e='emacsclient -t -a=""'
 # heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit
-alias magit="emacsclient -nw --eval '(magit-status)'"
+alias magit="emacsclient -nw --alternate-editor='' --eval '(magit-status)'"
+export GIT_EDITOR='emacsclient -t -a=""'
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

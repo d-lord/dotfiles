@@ -1,16 +1,15 @@
-call plug#begin('~/dotfiles/nvim_core/plugged')
+call plug#begin('~/.config/nvim_core/plugged')
 " basic
 Plug 'tpope/vim-repeat'
 " smart
 " Plug 'vim-airline/vim-airline'  " commented out for 40ms startup improvement
 " Plug 'vim-airline/vim-airline-themes'
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' } " :FZF
-Plug 'junegunn/fzf.vim' " adds more commands
 " Plug 'tpope/vim-fugitive' " alarmingly feature-rich
 " Plug 'airblade/vim-gitgutter' " also alarmingly feature-rich
 " Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " testing
-Plug 'rking/ag.vim' " `brew install the_silver_searcher`
+" Plug 'rking/ag.vim' " `brew install the_silver_searcher`
+Plug 'mileszs/ack.vim' " `brew install the_silver_searcher`
 Plug 'tpope/vim-sleuth' " auto-detect indent settings
 " Plug 'AndrewRadev/sideways.vim' " moving parameters around
 " nav
@@ -29,10 +28,12 @@ Plug 'chriskempson/base16-vim'
 " Plug 'fenetikm/falcon'
 " misc
 Plug 'qpkorr/vim-bufkill'
+" shared - special
+source ~/.config/nvim_shared/plugins.vim
 call plug#end()
 
-source ~/dotfiles/nvim_shared/shared.vim
-map <leader>e :e ~/dotfiles/nvim_core/init.vim<CR>
+source ~/.config/nvim_shared/config.vim
+map <leader>e :e ~/.config/nvim_core/init.vim<CR>
 
 " EasyMotion
 map <Leader>l <Plug>(easymotion-lineforward)

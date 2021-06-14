@@ -38,6 +38,10 @@ set updatetime=750		" delay until CursorHold event. extra I/O
 inoremap <C-e> <C-o><C-e>
 inoremap <C-y> <C-o><C-y>
 
+" fzf.vim: quickselect files
+" should be configured in the shared plugins.vim
+imap <c-x><c-f> <plug>(fzf-complete-path)
+
 " leader
 let mapleader = "\\"
 nnoremap <leader><space> :nohlsearch<CR>
@@ -47,24 +51,26 @@ nnoremap <leader>p "+p
 nnoremap <leader>P "+P
 nnoremap <leader>y "+y
 vnoremap <leader>y "+y
-nnoremap <leader>s :e ~/dotfiles/nvim_shared/shared.vim<CR>
+nnoremap <leader>s :e ~/.config/nvim_shared/config.vim<CR>
 nnoremap <leader>v :v/^\s*[#\n]/p<CR>
 nnoremap <leader>Y :%y+<CR>
 nnoremap <leader>z :e ~/.zshrc<CR>
+nnoremap <leader>q :FZF ~/quicklinks<CR>
+nnoremap <leader><tab> :FZF<CR>
 
 " <C-Tab> and <C-S-Tab> to change buffers
 " iTerm2 must be configured to send these on <C-Tab> and <C-S-Tab>. I hate terminals
-" set <F13>^=[1;2P
-" set <F14>^=[1;2Q
 " F13 is ^[ + [25~, F14 is ^[ + [26~
+set <F13>^=[1;2P
+set <F14>^=[1;2Q
 nmap <silent><F13> :bn<CR>
 nmap <silent><F14> :bp<CR>
-" this 'should' work in nvim, but I think iTerm isn't configured right
-" nmap <C-Tab> :bn<CR>
-" nmap <C-S-Tab> :bp<CR>
 " make it insert mode too
 imap <silent><F13> <C-o>:bn<CR>
 imap <silent><F14> <C-o>:bp<CR>
+" this 'should' work in nvim, but I think iTerm isn't configured right
+" nmap <C-Tab> :bn<CR>
+" nmap <C-S-Tab> :bp<CR>
 
 " Where to put the window for vim-plug
 let g:plug_window = 'topleft new'
@@ -75,4 +81,3 @@ let g:plug_window = 'topleft new'
 :nnoremap <C-j> <C-w>j
 :nnoremap <C-k> <C-w>k
 :nnoremap <C-l> <C-w>l
-
