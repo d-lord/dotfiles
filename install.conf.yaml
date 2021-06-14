@@ -9,11 +9,17 @@
     ~/.inputrc: .inputrc
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore
-    ~/.config/nvim:
+    ~/.config/nvim_core:
         path: nvim_core
+        create: true
+    ~/.config/nvim:
+        path: ~/.config/nvim_core
         create: true
     ~/.config/nvim_rice:
         path: nvim_rice
+        create: true
+    ~/.config/nvim_shared:
+        path: nvim_shared
         create: true
     ~/bin:
         path: bin
