@@ -1,24 +1,24 @@
 - shell:
-    -
-        description: Changing screenshot location
-        command: defaults write com.apple.screencapture location ~/Screenshots && killall SystemUIServer
-        stdout: true
-        stderr: true
-    -
-        description: Disabling screenshot drop shadow
-        command: defaults write com.apple.screencapture location ~/Screenshots && defaults write com.apple.screencapture disable-shadow -bool TRUE
-        stdout: true
-        stderr: true
-    -
-        description: Showing hidden files
-        command: defaults write com.apple.finder AppleShowAllFiles YES
-        stdout: true
-        stderr: true
-    -
-        description: Installing workflow dependencies
-        command: brew install ffmpeg imagemagick
-        stdout: true
-        stderr: true
+  -
+    description: Changing screenshot location
+    command: defaults write com.apple.screencapture location ~/Screenshots && killall SystemUIServer
+    stdout: true
+    stderr: true
+  -
+    description: Disabling screenshot drop shadow
+    command: defaults write com.apple.screencapture location ~/Screenshots && defaults write com.apple.screencapture disable-shadow -bool TRUE
+    stdout: true
+    stderr: true
+  -
+    description: Showing hidden files
+    command: defaults write com.apple.finder AppleShowAllFiles YES
+    stdout: true
+    stderr: true
+  -
+    description: Installing workflow dependencies
+    command: brew install ffmpeg imagemagick
+    stdout: true
+    stderr: true
 - link:
     ~/Library/Services/:
         description: Installing Quick Actions

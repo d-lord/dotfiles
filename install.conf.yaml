@@ -26,24 +26,24 @@
         create: true
 
 - shell:
-    - 
-        description: Installing submodules
-        command: git submodule update --init --recursive
-    -
-        description: Installing python3, zsh, bat, neovim, fd, ag from homebrew
-        command: brew install python3 zsh bat neovim fd ag
-        stderr: true
-    -
-        description: Installing neovim Python
-        command: pip3 install neovim
-        stderr: true
-    -
-        description: Installing neovim core plugins
-        command: nvim "+colorscheme desert" +PlugInstall +qall
-        stdout: true
-        stderr: true
-    -
-        description: Installing neovim rice plugins
-        command: nvim -u ~/dotfiles/nvim_rice/init.vim "+colorscheme desert" +PlugInstall +qall
-        stdout: true
-        stderr: true
+  - 
+    description: Installing submodules
+    command: git submodule update --init --recursive
+  -
+    description: Installing python3, zsh, bat, neovim, fd, ag from homebrew
+    command: brew install python3 zsh bat neovim fd ag
+    stderr: true
+  -
+    description: Installing neovim Python
+    command: pip3 install neovim
+    stderr: true
+  -
+    description: Installing neovim core plugins
+    command: nvim "+colorscheme desert" +PlugInstall +qall
+    stdout: true
+    stderr: true
+  -
+    description: Installing neovim rice plugins
+    command: nvim -u ~/dotfiles/nvim_rice/init.vim "+colorscheme desert" +PlugInstall +qall
+    stdout: true
+    stderr: true
