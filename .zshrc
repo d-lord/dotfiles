@@ -1,11 +1,118 @@
+if [ -e /Users/dal/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dal/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+# zsh doesn't read ~/.profile by default
+[[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# ============
+# editor stuff
+# ============
+
+# =
+# vim
+# lots of other stuff goes through the rice (vice) version
+vice_cmd="nvim -u ~/dotfiles/nvim_rice/init.vim"
+alias vice=$vice_cmd
+alias v=$vice_cmd
+if (( $+commands[nvim] )); then
+  alias vim=nvim
+fi
+
+# =
+# emacs
+alias e='emacsclient -t -a=""'
+# heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit:
+alias magit="emacsclient -nw --alternate-editor='' --eval '(magit-status)'"
+# this often interrupts my flow when the daemon isn't running, so it's currently disabled:
+# export GIT_EDITOR='emacsclient -t -a=""'
+
+# =
+# fuzzyfinder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+export FZF_DEFAULT_COMMAND='fd --type f'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+# preview files in ctrl+t
+export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
+# preview files in ctrl+r by pressing ?
+export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
+
+
+# =====
+# keybinds
+# =====
+
+# zsh (also provided by oh-my-zsh)
+# autoload -Uz edit-command-line
+# zle -N edit-command-line
+# bindkey '^x^e' edit-command-line
+
+#
+# binds for iTerm's CSI u mode aka libtermkey/libtickit
+# https://iterm2.com/documentation-csiu.html
+# opt+left and right
+bindkey '^[[1;3D' backward-word
+bindkey '^[[1;3C' forward-word
+# I often find myself hitting shift+space by accident
+# eg "echo !$ foo" -- between $ and foo I'm often still holding shift
+bindkey ";2u" magic-space
+
+# iTerm shell integration mode, if installed
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
+
+# pyenv setup. note that this roughly doubles zsh startup time (0.08s to 0.14s)
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+# speedier version which will probably bite me because it's home-brewed:
+alias pyenv='unalias pyenv && eval "$(pyenv init -)" && pyenv $@'
+
+
+### ================================
+### Truecolour terminal shenanigans
+### ================================
+# To teach a terminal how to use it (ie create a terminfo file):
+# https://gitlab.com/skybert/my-little-friends/blob/master/x/xterm-24bit.terminfo
+# I have iTerm configured to use xterm-24bit by default.
+# If I've set TERM=xterm-24bit in iTerm, downgrade that for ssh - remote hosts probably don't have the terminfo
+if [[ "$TERM" == "xterm-24bit" ]]; then
+  alias ssh='TERM=xterm-256color ssh';
+fi
+
+
+### =======================
+### Basic zsh feature setup (for no oh-my-zsh)
+### =======================
+# zstyle ':completion:*:*:*:*:*' menu select
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' matcher-list 'm:{a-zA-Z-_}={A-Za-z_-}' 'r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' use-cache yes
+# zstyle ':completion:*' cache-path $ZSH/cache
+# autoload -Uz compinit && compinit
+# autoload -U colors && colors
+# bindkey "^R"   history-incremental-search-backward
+# bindkey "^[[A" history-beginning-search-backward
+# bindkey "^[[B" history-beginning-search-forward
+# function parse_git_branch() {
+#   branch=$(git branch 2> /dev/null | sed -n -e 's/^\* \(.*\)/\1/p')
+#   if [[ $branch == "" ]];
+#   then
+#     :
+#   else
+#     echo " $branch"
+#   fi
+# }
+# setopt PROMPT_SUBST
+# export PROMPT='%F{8}%~%f%F{32}$(parse_git_branch)%f%(?.. %{$fg[red]%}%?%F{reset}) '
+
+
+### ============================
+### oh-my-zsh
+### ============================
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
-# zsh doesn't read ~/.profile by default
-# [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
@@ -17,7 +124,7 @@ ZSH_THEME="robbyrussell"
 
 # Uncomment the following line to use hyphen-insensitive completion. Case
 # sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 # Uncomment the following line to disable bi-weekly auto-update checks.
 # DISABLE_AUTO_UPDATE="true"
@@ -54,10 +161,14 @@ ZSH_THEME="robbyrussell"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=()
 
 source $ZSH/oh-my-zsh.sh
 
+
+### ==================
+### Misc zshrc options
+### ==================
 
 # User configuration
 
@@ -87,62 +198,3 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-#
-# editor stuff
-#
-
-# vim section
-# $EDITOR is the quick-edit tool, so we use vanilla nvim for that
-export EDITOR=nvim
-# lots of other stuff goes through the rice (vice) version
-vice_cmd="nvim -u ~/dotfiles/nvim_rice/init.vim"
-alias vice=$vice_cmd
-alias v=$vice_cmd
-if (( $+commands[nvim] )); then
-  alias vim=nvim
-fi
-
-# emacs section, preferring it for git stuff
-alias e='emacsclient -t -a=""'
-# heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit
-alias magit="emacsclient -nw --alternate-editor='' --eval '(magit-status)'"
-export GIT_EDITOR='emacsclient -t -a=""'
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# preview files in ctrl+t
-export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
-# preview files in ctrl+r by pressing ?
-export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
-
-#
-# binds for iTerm's CSI u mode aka libtermkey/libtickit
-# https://iterm2.com/documentation-csiu.html
-# opt+left and right
-bindkey '^[[1;3D' backward-word
-bindkey '^[[1;3C' forward-word
-# I often find myself hitting shift+space by accident
-# eg "echo !$ foo" -- between $ and foo I'm often still holding shift
-bindkey ";2u" magic-space
-
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh" || true
-
-# pyenv setup. note that this roughly doubles zsh startup time (0.08s to 0.14s)
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
-# speedier version which will probably bite me because it's home-brewed:
-alias pyenv='unalias pyenv && eval "$(pyenv init -)" && pyenv $@'
-
-### ================================
-### Truecolour terminal shenanigans
-### ================================
-# To teach a terminal how to use it (ie create a terminfo file):
-# https://gitlab.com/skybert/my-little-friends/blob/master/x/xterm-24bit.terminfo
-# I have iTerm configured to use xterm-24bit by default.
-# If I've set TERM=xterm-24bit in iTerm, downgrade that for ssh - remote hosts probably don't have the terminfo
-if [[ "$TERM" == "xterm-24bit" ]]; then
-  alias ssh='TERM=xterm-256color ssh';
-fi

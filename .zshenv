@@ -2,10 +2,15 @@
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
+# python
 alias python2=/usr/bin/python
 alias pip2=/usr/local/bin/pip
 alias python=python3
 alias pip=pip3
+
+# vim
+# $EDITOR is the quick-edit tool, so we use vanilla nvim (core config only)
+export EDITOR=nvim
 
 # mine
 export PATH=~/bin:$PATH
