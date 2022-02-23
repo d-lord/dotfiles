@@ -1,10 +1,8 @@
-if [ -e /Users/dal/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/dal/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
-
 # zsh doesn't read ~/.profile by default
 [[ -e ~/.profile ]] && emulate sh -c 'source ~/.profile'
 
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
+# Workplace stuff lives here and is gitignored.
+[[ -e ~/.work.zsh ]] && . ~/.work.zsh
 
 # ============
 # editor stuff

@@ -4,6 +4,7 @@
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
     ~/.oh-my-zsh: oh-my-zsh/
+    ~/.work.zsh: work.zsh
     ~/.tmux: .tmux
     ~/.tmux.conf: .tmux/.tmux.conf
     ~/.inputrc: .inputrc
