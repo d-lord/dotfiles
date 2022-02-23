@@ -14,3 +14,15 @@
         command: defaults write com.apple.finder AppleShowAllFiles YES
         stdout: true
         stderr: true
+    -
+        description: Installing workflow dependencies
+        command: brew install ffmpeg imagemagick
+        stdout: true
+        stderr: true
+- link:
+    ~/Library/Services/:
+        description: Installing Quick Actions
+        create: true
+        force: true
+        glob: true
+        path: macos_quick_actions/*

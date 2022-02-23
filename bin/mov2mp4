@@ -3,7 +3,15 @@ zparseopts -D -- h=help -help=help
 if [[ -n $help || $# != 1 ]]; then
     echo "Usage: mov2mp4 <filename.mov>"
     echo "mov2mp4 is a simple command to take a .mov video (e.g. a QuickTime screen recording) and turn it into an Apple-compatible .mp4."
+    echo "It overwrites the new file if a copy already exists, and deletes the original file after success."
     return 1
 else
-    ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4"
+    stdout=$(yes | ffmpeg -i "$1" -pix_fmt yuv420p "${1%.*}.mp4")
+    if [  $? -eq 0 ]; then
+        rm "$1"
+    else
+        echo "ffmpeg failed:"
+        echo "$stdout"
+        return 1
+    fi
 fi
