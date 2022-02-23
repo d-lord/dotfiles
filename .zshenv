@@ -14,7 +14,7 @@ export PATH=~/bin:$PATH
 export PATH=$PATH:~/.emacs.d/bin
 
 # use neovim as a manpage viewer (syntax highlighting, gO, etc)
-export MANPAGER="nvim -c 'set ft=man' -"
+export MANPAGER='nvim +Man!'
 
 # use bat instead. can still use cat with `\cat`
 alias cat=bat
