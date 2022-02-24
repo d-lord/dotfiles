@@ -21,17 +21,14 @@ fi
 # =
 # emacs
 alias e='emacsclient -t -a=""'
-# heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit:
+# heaps of room for improvement; for one, it exits 1 if cwd is not a git repo, and it also keeps the emacs frame after you close magit
 alias magit="emacsclient -nw --alternate-editor='' --eval '(magit-status)'"
 # this often interrupts my flow when the daemon isn't running, so it's currently disabled:
 # export GIT_EDITOR='emacsclient -t -a=""'
 
 # =
 # fuzzyfinder
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-export FZF_DEFAULT_COMMAND='fd --type f'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-# preview files in ctrl+t
+# preview files in ctrl+t by default
 export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat {} || tree -C {}) 2> /dev/null | head -200'"
 # preview files in ctrl+r by pressing ?
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
@@ -159,7 +156,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=()
+plugins=(fzf)
 
 source $ZSH/oh-my-zsh.sh
 
