@@ -6,7 +6,7 @@
     stderr: true
   -
     description: Disabling screenshot drop shadow
-    command: defaults write com.apple.screencapture location ~/Screenshots && defaults write com.apple.screencapture disable-shadow -bool TRUE
+    command: defaults write com.apple.screencapture disable-shadow -bool TRUE
     stdout: true
     stderr: true
   -
