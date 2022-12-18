@@ -23,7 +23,6 @@ Plug 'tpope/vim-commentary'
 " Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 " Plug 'frankier/neovim-colors-solarized-truecolor-only'  " unused
 " Plug 'romainl/Apprentice'
-" Plug 'jpo/vim-railscasts-theme'
 Plug 'chriskempson/base16-vim'
 " Plug 'fenetikm/falcon'
 " misc

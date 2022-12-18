@@ -7,15 +7,23 @@ set ignorecase " required for smartcase: searches are case-insensitive
 set smartcase " ignore case if search pattern is all lowercase, otherwise case-sensitive
 set number " line numbers
 set showcmd " show normal command while typing
+set inccommand=split " show live find-replace results in a split
+
+" the inability to set defaults for vim-sleuth is (╯°□°）╯︵ ┻━┻, so here we
+" are doing it manually
+set tabstop=4
+set shiftwidth=4
+set smartindent
 
 " colorscheme
 set termguicolors
-colorscheme base16-flat
+" colorscheme base16-flat
+colorscheme base16-railscasts
 " colorscheme apprentice
 " colorscheme falcon
 set bg=dark
 " minor QoL for quickfix
-hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
+" hi Search ctermfg=8 ctermbg=3 guifg=#95A5A6 guibg=yellow
 " bright yellow line number
 hi clear CursorLine
 hi CursorLineNr term=bold ctermfg=14 gui=bold guifg=Yellow
@@ -41,6 +49,10 @@ inoremap <C-y> <C-o><C-y>
 " fzf.vim: quickselect files
 " should be configured in the shared plugins.vim
 imap <c-x><c-f> <plug>(fzf-complete-path)
+" c/o https://www.flat9.dev/linux/neovim/vim/config/2021/01/03/my-neovim-config.html
+nmap <F1> <plug>(fzf-maps-n)
+imap <F1> <plug>(fzf-maps-i)
+vmap <F1> <plug>(fzf-maps-x)
 
 " leader
 let mapleader = "\\"

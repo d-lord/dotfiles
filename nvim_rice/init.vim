@@ -7,24 +7,19 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-fugitive' " alarmingly feature-rich
 Plug 'airblade/vim-gitgutter' " also alarmingly feature-rich
 Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
-" testing
-Plug 'rking/ag.vim' " `brew install the_silver_searcher`
-Plug 'tpope/vim-sleuth' " auto-detect indent settings
-" Plug 'AndrewRadev/sideways.vim' " moving parameters around
+" language server and other fancy shit
+Plug 'neovim/nvim-lspconfig'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 " nav
 Plug 'Lokaltog/vim-easymotion'
+Plug 'rking/ag.vim' " `brew install the_silver_searcher`
 " edit
 Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-surround'
-" Plug 'gibiansky/vim-latex-objects'  " unused
 Plug 'tpope/vim-commentary'
+" Plug 'AndrewRadev/sideways.vim' " moving parameters around
 " colorschemes
-" Plug 'vim-scripts/ScrollColors' " for testing colorschemes
-" Plug 'frankier/neovim-colors-solarized-truecolor-only'  " unused
-" Plug 'romainl/Apprentice'
-" Plug 'jpo/vim-railscasts-theme'
-Plug 'chriskempson/base16-vim'
-" Plug 'fenetikm/falcon'
+Plug 'vim-scripts/ScrollColors' " for testing colorschemes
 " misc
 Plug 'qpkorr/vim-bufkill'
 " special - shared
@@ -63,3 +58,24 @@ nmap ga <Plug>(EasyAlign)
 
 " vim-bufkill (ie <C-w> c without killing the window too)
 nnoremap <C-c> :BD<cr>
+
+" language servers
+lua require 'lspconfig'.terraformls.setup{}
+
+" tree-sitter
+lua << EOF
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "vim", "lua", "hcl"
+  },
+  auto_install = true,
+  highlight = {
+    enable = true,
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
