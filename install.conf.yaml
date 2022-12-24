@@ -1,3 +1,6 @@
+# NB: If not using macOS, you'll need to consult macos.conf.yaml and install
+# a bunch of packages without homebrew
+
 - clean: ['~']
 
 - link:
@@ -33,10 +36,6 @@
   - 
     description: Installing submodules
     command: git submodule update --init --recursive
-  -
-    description: Installing python3, zsh, bat, neovim, fd, ag from homebrew
-    command: brew install python3 zsh bat neovim fd ag
-    stderr: true
   -
     description: Installing neovim Python
     command: pip3 install neovim

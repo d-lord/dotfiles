@@ -1,4 +1,11 @@
+- create:
+  - ~/Screenshots
+
 - shell:
+  -
+    description: Installing python3, zsh, bat, neovim, fd, ripgrep, tree-sitter from homebrew
+    command: brew install python3 zsh bat neovim fd ripgrep tree-sitter
+    stderr: true
   -
     description: Changing screenshot location
     command: defaults write com.apple.screencapture location ~/Screenshots && killall SystemUIServer
