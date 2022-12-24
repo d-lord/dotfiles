@@ -18,12 +18,12 @@ if (( $+commands[nvim] )); then
   alias vim=nvim
 fi
 
-# vim pager, used with long commands like this: bindkey -L | vp
+# vp=vim pager, used with long commands like this: 'bindkey -L | vp'
 # allows me to :q the temporary buffer without asking to save it.
 # I use '| vim -' all the time. this is shorter and implements the quick-quit too.
 # you'd think there would be a buffer-local setting for 'just discard me', but I found this first.
+# `bat -p` may turn out to be a better option.
 alias vp='vim -c "cnoreabbrev <buffer> q q!" -'
-export PAGER=vp
 
 # =
 # emacs
@@ -33,6 +33,10 @@ alias magit="emacsclient -nw --alternate-editor='' --eval '(magit-status)'"
 # this often interrupts my flow when the daemon isn't running, so it's currently disabled:
 # export GIT_EDITOR='emacsclient -t -a=""'
 
+# =============
+# utility stuff
+# =============
+
 # =
 # fuzzyfinder
 # preview files in ctrl+t by default
@@ -40,6 +44,13 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 # preview files in ctrl+r by pressing ?
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
+# =
+# bat
+export BAT_THEME="Monokai Extended Origin"
+# use plain style for random pager stuff (`git log`, AWS output, etc).
+# this doesn't prevent syntax detection, just removes line numbers and "STDIN" header
+export PAGER="bat -p"
+# there's room to add custom configs for AWS_PAGER, etc
 
 # =====
 # keybinds
