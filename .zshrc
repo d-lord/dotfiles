@@ -18,6 +18,13 @@ if (( $+commands[nvim] )); then
   alias vim=nvim
 fi
 
+# vim pager, used with long commands like this: bindkey -L | vp
+# allows me to :q the temporary buffer without asking to save it.
+# I use '| vim -' all the time. this is shorter and implements the quick-quit too.
+# you'd think there would be a buffer-local setting for 'just discard me', but I found this first.
+alias vp='vim -c "cnoreabbrev <buffer> q q!" -'
+export PAGER=vp
+
 # =
 # emacs
 alias e='emacsclient -t -a=""'
