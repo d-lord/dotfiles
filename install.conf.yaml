@@ -3,8 +3,11 @@
 - link:
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
-    ~/.oh-my-zsh: oh-my-zsh/
-    ~/.work.zsh: work.zsh
+    ~/.oh-my-zsh: oh-my-zsh
+    ~/.work.zsh:
+      path: work.zsh
+      if: '[[ -e work.zsh ]]'
+    ~/.profile: .profile
     ~/.tmux: .tmux
     ~/.tmux.conf: .tmux/.tmux.conf
     ~/.inputrc: .inputrc
