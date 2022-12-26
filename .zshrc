@@ -53,13 +53,14 @@ export PAGER="bat -p"
 # there's room to add custom configs for AWS_PAGER, etc
 
 # =====
-# keybinds
+# keybinds and zsh config
+# see also: .zlogin for config that would be overwritten after this file is read
 # =====
 
-# zsh (also provided by oh-my-zsh)
-# autoload -Uz edit-command-line
-# zle -N edit-command-line
-# bindkey '^x^e' edit-command-line
+# don't require two enter/space when typing !! or !$ to execute the line
+# (https://superuser.com/a/1276243/352136)
+# see: `man zshoptions`
+unsetopt HIST_VERIFY
 
 #
 # binds for iTerm's CSI u mode aka libtermkey/libtickit
