@@ -6,6 +6,7 @@
 - link:
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
+    ~/.zlogin: .zlogin
     ~/.oh-my-zsh: oh-my-zsh
     ~/.work.zsh:
       path: work.zsh
