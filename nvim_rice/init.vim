@@ -77,5 +77,18 @@ require 'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+  incremental_selection = {
+	enable = true,
+	keymaps = {
+	  init_selection = "<A-Up>", -- set to `false` to disable one of the mappings
+	  node_incremental = "<A-Up>",
+	  node_decremental = "<A-Down>",
+	},
+  },
 }
 EOF
+
+" fold with treesitter
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable  " don't automatically fold files when you open them
