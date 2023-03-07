@@ -10,6 +10,8 @@ Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " language server and other fancy shit
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSUpdate'}  " show a context line at the top showing the scope (eg the function you're inside). it's a good start, but I'd prefer if you couldn't hide it whenever you put the cursor on that line.
+Plug 'drybalka/tree-climber.nvim'
 " nav
 Plug 'Lokaltog/vim-easymotion'
 Plug 'rking/ag.vim' " `brew install the_silver_searcher`
@@ -48,8 +50,6 @@ nmap s <Plug>(easymotion-s)
 let g:EasyMotion_startofline = 0 " keep cursor column when JK motion
 let g:EasyMotion_smartcase = 1 " type l, match l & L
 
-let g:plug_window='' " defaults to 'vertical topleft new' but I'd rather it used the same window
-
 " Start interactive EasyAlign in visual mode (e.g. vip<Enter>)
 vmap <Enter> <Plug>(EasyAlign)
 
@@ -78,17 +78,69 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
   incremental_selection = {
-	enable = true,
-	keymaps = {
-	  init_selection = "<A-Up>", -- set to `false` to disable one of the mappings
-	  node_incremental = "<A-Up>",
-	  node_decremental = "<A-Down>",
-	},
+    enable = true,
+    keymaps = {
+      init_selection = "<A-Up>", -- set to `false` to disable one of the mappings
+      node_incremental = "<A-Up>",
+      node_decremental = "<A-Down>",
+    },
+  },
+  indent = {
+    enable = true
   },
 }
 EOF
+" if I node_decremental too many times, it effectively starts pressing 'j', unless:
+nmap <A-Down> <nop>
 
 " fold with treesitter
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 set nofoldenable  " don't automatically fold files when you open them
+
+lua << EOF
+require'treesitter-context'.setup{
+    enable = true, -- Enable this plugin (Can be enabled/disabled later via commands)
+    patterns = { -- Match patterns for TS nodes. These get wrapped to match at word boundaries.
+        -- Patterns for specific filetypes
+        -- If a pattern is missing, *open a PR* so everyone can benefit.
+        terraform = {
+            'block',
+            'object_elem',
+            'attribute',
+        },
+        markdown = {
+            'section',
+        },
+        json = {
+            'pair',
+        },
+        typescript = {
+            'export_statement',
+        },
+    },
+}
+EOF
+
+lua << EOF
+local keyopts = { noremap = true, silent = true }
+vim.keymap.set({'n', 'v', 'o'}, 'H', function () require('tree-climber').goto_parent({highlight = true}) end, keyopts)
+vim.keymap.set({'n', 'v', 'o'}, 'L', function () require('tree-climber').goto_child({highlight = true}) end, keyopts)
+--vim.keymap.set({'n', 'v', 'o'}, 'J', function () require('tree-climber').goto_next({highlight = true}) end, keyopts)
+vim.keymap.set({'n', 'v', 'o'}, 'K', function () require('tree-climber').goto_prev({highlight = true}) end, keyopts)
+vim.keymap.set({'v', 'o'}, 'in', function () require('tree-climber').select_node({highlight = true}) end, keyopts)
+vim.keymap.set('n', '<c-k>', function () require('tree-climber').swap_prev({highlight = true}) end, keyopts)
+vim.keymap.set('n', '<c-j>', function () require('tree-climber').swap_next({highlight = true}) end, keyopts)
+vim.keymap.set('n', '<c-h>', function () require('tree-climber').highlight_node({highlight = true}) end, keyopts)
+EOF
+
+" experimenting with ripgrep
+set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
+set grepformat=%f:%l:%c:%m
+
+" match terraform aux files
+" au BufRead,BufNewFile *.tfstate setfiletype terraform
+" NB: vim detects this ft as 'terraform-vars' but doesn't have any syntax so
+" doesn't highlight it (missing from LSP?) - I'm simply overriding this. maybe
+" one day it can be removed. (Dec 2022)
+" au BufRead,BufNewFile *.tfvars set filetype=terraform

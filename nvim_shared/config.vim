@@ -14,6 +14,7 @@ set inccommand=split " show live find-replace results in a split
 set tabstop=4
 set shiftwidth=4
 set smartindent
+set expandtab
 
 " colorscheme
 set termguicolors
@@ -83,9 +84,6 @@ imap <silent><F14> <C-o>:bp<CR>
 " this 'should' work in nvim, but I think iTerm isn't configured right
 " nmap <C-Tab> :bn<CR>
 " nmap <C-S-Tab> :bp<CR>
-
-" Where to put the window for vim-plug
-let g:plug_window = 'topleft new'
 
 " quick window navigation
 " if <C-h> doesn't work, update neovim - it used to be caused by: https://github.com/neovim/neovim/issues/2048 

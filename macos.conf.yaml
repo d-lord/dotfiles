@@ -26,6 +26,10 @@
     command: brew install ffmpeg imagemagick
     stdout: true
     stderr: true
+  -
+    description: Installing vim dependencies
+    command: brew install terraform-ls
+    stderr: true
 - link:
     ~/Library/Services/:
         description: Installing Quick Actions

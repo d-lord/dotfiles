@@ -63,3 +63,7 @@ nnoremap <C-c> :BD<cr>
 
 nmap <leader>q :FZF ~/quicklinks<CR>
 
+" match terraform files: base nvim doesn't have 'terraform' but does have the
+" slightly inferior 'tf'
+au BufRead,BufNewFile *.tfstate setfiletype tf
+au BufRead,BufNewFile *.tfvars setfiletype tf
