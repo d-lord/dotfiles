@@ -38,6 +38,10 @@
     description: Installing submodules
     command: git submodule update --init --recursive
   -
+    description: Installing powerlevel10k
+    command: if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k; fi
+    stderr: true
+  -
     description: Installing neovim Python
     command: pip3 install neovim
     stderr: true
