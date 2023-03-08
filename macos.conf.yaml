@@ -22,6 +22,9 @@
     stdout: true
     stderr: true
   -
+    description: Disabling spellchecking etc
+    command: defaults write -g NSAutomaticCapitalizationEnabled -bool FALSE && defaults write -g NSAutomaticPeriodSubstitutionEnabled -bool FALSE && defaults write -g NSAutomaticSpellingCorrectionEnabled -bool FALSE
+  -
     description: Installing workflow dependencies
     command: brew install ffmpeg imagemagick
     stdout: true
