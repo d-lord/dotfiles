@@ -7,7 +7,10 @@
     ~/.zshrc: .zshrc
     ~/.zshenv: .zshenv
     ~/.zlogin: .zlogin
-    ~/.oh-my-zsh: oh-my-zsh
+    ~/.oh-my-zsh:
+      path: ohmyzsh
+      create: true
+    ~/.p10k.zsh: .p10k.zsh
     ~/.work.zsh:
       path: work.zsh
       if: '[[ -e work.zsh ]]'
@@ -37,6 +40,8 @@
   - 
     description: Installing submodules
     command: git submodule update --init --recursive
+    stdout: true
+    stderr: true
   -
     description: Installing powerlevel10k
     command: if [[ ! -d "${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k" ]]; then git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k; fi
