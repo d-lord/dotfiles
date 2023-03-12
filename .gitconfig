@@ -6,6 +6,7 @@
 	autocrlf = false
 [push]
 	default = simple
+	autoSetupRemote = true
 [alias]
 	statsu = status
 [init]
