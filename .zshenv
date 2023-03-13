@@ -1,6 +1,10 @@
 # Homebrew
-export PATH=/usr/local/bin:$PATH
-export PATH=/usr/local/sbin:$PATH
+if [[ $(uname -p) == 'arm' ]]; then
+  export PATH=/opt/homebrew/bin:$PATH
+else
+  export PATH=/usr/local/bin:$PATH
+  export PATH=/usr/local/sbin:$PATH
+fi
 
 # python
 alias python2=/usr/bin/python
