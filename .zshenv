@@ -1,6 +1,7 @@
 # Homebrew
 if [[ $(uname -p) == 'arm' ]]; then
   export PATH=/opt/homebrew/bin:$PATH
+  export PATH=/opt/homebrew/sbin:$PATH
 else
   export PATH=/usr/local/bin:$PATH
   export PATH=/usr/local/sbin:$PATH
@@ -20,7 +21,7 @@ export EDITOR=nvim
 export PATH=~/bin:$PATH
 
 # doom emacs
-export PATH=$PATH:~/.emacs.d/bin
+export PATH=$PATH:~/.config/emacs/bin
 
 # use neovim as a manpage viewer (syntax highlighting, gO, etc)
 export MANPAGER='nvim +Man!'
