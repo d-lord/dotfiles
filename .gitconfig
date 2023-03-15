@@ -5,7 +5,7 @@
 	excludesfile = /home/dal/.gitignore
 	autocrlf = false
 [push]
-	default = simple
+	default = current
 	autoSetupRemote = true
 [alias]
 	statsu = status
