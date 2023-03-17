@@ -139,8 +139,8 @@ set grepprg=rg\ --vimgrep\ --smart-case\ --hidden
 set grepformat=%f:%l:%c:%m
 
 " match terraform aux files
-" au BufRead,BufNewFile *.tfstate setfiletype terraform
+au BufRead,BufNewFile *.tfstate setfiletype terraform
 " NB: vim detects this ft as 'terraform-vars' but doesn't have any syntax so
 " doesn't highlight it (missing from LSP?) - I'm simply overriding this. maybe
-" one day it can be removed. (Dec 2022)
-" au BufRead,BufNewFile *.tfvars set filetype=terraform
+" one day it can be removed. (Dec 2022) (Mar 2023)
+au BufRead,BufNewFile *.tfvars set filetype=terraform
