@@ -20,6 +20,7 @@
     ~/.inputrc: .inputrc
     ~/.gitconfig: .gitconfig
     ~/.gitignore_global: .gitignore
+    ~/.rg.conf: .rg.conf
     ~/.config/nvim_core:
         path: nvim_core
         create: true

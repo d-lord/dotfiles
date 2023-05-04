@@ -34,3 +34,6 @@ export FZF_DEFAULT_OPTS="--color fg:188,bg:233,hl:103,fg+:222,bg+:234,hl+:104 --
 
 # stop blocking my workflow/scripts by showing `less` every so often
 AWS_PAGER=bat
+
+# use ripgrep's config file (`man rg`)
+export RIPGREP_CONFIG_PATH=~/.rg.conf
