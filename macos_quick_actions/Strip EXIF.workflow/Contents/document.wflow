@@ -62,7 +62,7 @@
 					<string>for f in "$@"
 do
 	echo "$f"
-	/usr/local/bin/exiftool -all= -overwrite_original "$f"
+	"$(brew --prefix)"/bin/exiftool -all= -overwrite_original "$f"
 done</string>
 					<key>CheckedForUserDefaultShell</key>
 					<true/>

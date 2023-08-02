@@ -51,6 +51,13 @@ export FZF_CTRL_T_OPTS="--preview '(highlight -O ansi -l {} 2> /dev/null || cat 
 # preview files in ctrl+r by pressing ?
 export FZF_CTRL_R_OPTS="--preview 'echo {}' --preview-window down:3:hidden:wrap --bind '?:toggle-preview'"
 
+# sweep up old branches with a multi-select interface
+sweep-branches() {
+  FZF_DEFAULT_COMMAND="git branch --format ' %(align:70,left)%(refname:short)%(end)%(align:15,left)%(upstream:track)%(end)%(subject)'" \
+    fzf --header 'Press TAB to mark, ENTER to delete, ctrl-G to exit' --marker='D' --multi \
+        --bind 'enter:execute-silent(git branch -D {+1})+reload(eval "$FZF_DEFAULT_COMMAND")'
+}
+
 # =
 # bat
 export BAT_THEME="Monokai Extended Origin"
