@@ -1,11 +1,7 @@
-# Homebrew
-if [[ $(uname -p) == 'arm' ]]; then
-  export PATH=/opt/homebrew/bin:$PATH
-  export PATH=/opt/homebrew/sbin:$PATH
-else
-  export PATH=/usr/local/bin:$PATH
-  export PATH=/usr/local/sbin:$PATH
-fi
+# Don't manipulate PATH in here if it needs to go in front of the system paths. /etc/zprofile is read after this.
+# Put PATH stuff in ~/.zprofile instead.
+
+# export PATH='Not here!'
 
 # python
 alias python2=/usr/bin/python
@@ -17,16 +13,10 @@ alias pip=pip3
 # $EDITOR is the quick-edit tool, so we use vanilla nvim (core config only)
 export EDITOR=nvim
 
-# mine
-export PATH=~/bin:$PATH
-
-# doom emacs
-export PATH=$PATH:~/.config/emacs/bin
-
 # use neovim as a manpage viewer (syntax highlighting, gO, etc)
 export MANPAGER='nvim +Man!'
 
-# use bat instead. can still use cat with `\cat`
+# use bat by default. can still use cat with `\cat`
 alias cat=bat
 
 # jellybeans and reverse
