@@ -226,6 +226,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# enable autocompletion for the 1Password CLI if installed
+# goes after OMZ as that autoloads compinit (we could instead do it above, but no reason to)
+if [[ (( $+commands[op] )) ]]; then
+  eval "$(op completion zsh)" ; compdef _op op
+fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
