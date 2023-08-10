@@ -189,7 +189,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf)
+plugins=(fzf 1password)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -226,11 +226,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# enable autocompletion for the 1Password CLI if installed
-# goes after OMZ as that autoloads compinit (we could instead do it above, but no reason to)
-if [[ (( $+commands[op] )) ]]; then
-  eval "$(op completion zsh)" ; compdef _op op
-fi
+# == AUTOCOMPLETION
+# If wanting to eval & compdef something, put it here (since OMZ has autoloaded compinit), but first check if OMZ already has a plugin for it.
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
