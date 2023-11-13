@@ -10,7 +10,7 @@ Plug 'benekastah/neomake' " ft-specific makeprgs like simpatico, shellcheck
 " language server and other fancy shit
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context', {'do': ':TSUpdate'}  " show a context line at the top showing the scope (eg the function you're inside). it's a good start, but I'd prefer if you couldn't hide it whenever you put the cursor on that line.
+Plug 'nvim-treesitter/nvim-treesitter-context' " show a context line at the top showing the scope (eg the function you're inside). it's a good start, but I'd prefer if you couldn't hide it whenever you put the cursor on that line.
 Plug 'drybalka/tree-climber.nvim'
 " nav
 Plug 'Lokaltog/vim-easymotion'
