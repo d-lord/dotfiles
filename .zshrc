@@ -60,7 +60,8 @@ sweep-branches() {
 
 # =
 # bat
-export BAT_THEME="Monokai Extended Origin"
+# set theme if not already set (eg by terminal settings)
+export BAT_THEME="${BAT_THEME-Monokai Extended Origin}"
 # use plain style for random pager stuff (`git log`, AWS output, etc).
 # this doesn't prevent syntax detection, just removes line numbers and "STDIN" header
 export PAGER="bat -p"
