@@ -16,5 +16,13 @@ fi
 # doom emacs
 export PATH=$PATH:~/.config/emacs/bin
 
+# pnpm
+export PNPM_HOME="/Users/dal/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
 # mine
 export PATH=~/bin:$PATH
