@@ -72,11 +72,6 @@ export PAGER="bat -p"
 # see also: .zlogin for config that would be overwritten after this file is read
 # =====
 
-# don't require two enter/space when typing !! or !$ to execute the line
-# (https://superuser.com/a/1276243/352136)
-# see: `man zshoptions`
-unsetopt HIST_VERIFY
-
 #
 # binds for iTerm's CSI u mode aka libtermkey/libtickit
 # https://iterm2.com/documentation-csiu.html
@@ -193,6 +188,15 @@ HYPHEN_INSENSITIVE="true"
 plugins=(fzf z 1password)
 
 source $ZSH/oh-my-zsh.sh
+
+
+### ==============
+### Post oh-my-zsh
+### ==============
+# don't require two enter/space when typing !! or !$ to execute the line
+# (https://superuser.com/a/1276243/352136)
+# see: `man zshoptions`
+unsetopt HIST_VERIFY
 
 
 ### ==================
