@@ -34,7 +34,7 @@
     ~/.config/nvim_shared:
         path: nvim_shared
         create: true
-    ~/bin:
+    ~/.local/bin:
         path: bin
         create: true
 

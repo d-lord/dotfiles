@@ -134,6 +134,19 @@ fi
 ### oh-my-zsh
 ### ============================
 
+# don't do the fortnightly prompt for updates - just send a reminder occasionally.
+# this prevents it from interrupting a new terminal session quasi-randomly
+# https://github.com/ohmyzsh/ohmyzsh#getting-updates
+zstyle ':omz:update' mode reminder
+
+# manual colorscheme override so that tab-completing files isn't dark-blue-on-black
+# and also the same colour as used in `ls`
+# see: https://www.reddit.com/r/zsh/comments/13e40fd/question_about_the_colors_used_for_zsh_in_mac/
+# some OMZ themes do set this, maybe well, but robbyrussell doesn't
+zstyle ':completion:*' list-colors "${(@s.:.)LS_COLORS}"
+export LS_COLORS="di=1;36:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+export LSCOLORS="Gxfxcxdxbxegedabagacad"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -185,7 +198,7 @@ HYPHEN_INSENSITIVE="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(fzf z 1password)
+plugins=(fzf z)
 
 source $ZSH/oh-my-zsh.sh
 

@@ -25,4 +25,4 @@ esac
 # pnpm end
 
 # mine
-export PATH=~/bin:$PATH
+export PATH=~/.local/bin:$PATH
